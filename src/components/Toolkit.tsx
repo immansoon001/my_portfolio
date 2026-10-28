@@ -271,17 +271,17 @@ export function Toolkit() {
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.3, delay: index * 0.04 }}
               onClick={() => setActiveTech(tech)}
-              className="group p-3.5 sm:p-5 rounded-2xl bg-surface-container-low hover:bg-surface-container hover:shadow-[0_0_24px_rgba(167,139,250,0.18)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col items-center justify-center text-center gap-2 sm:gap-2.5 border border-outline-variant/30 hover:border-primary-container/50 cursor-pointer select-none"
+              className="group p-3 sm:p-5 rounded-2xl bg-surface-container-low hover:bg-surface-container hover:shadow-[0_0_24px_rgba(167,139,250,0.18)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col items-center justify-center text-center gap-1.5 sm:gap-2.5 border border-outline-variant/30 hover:border-primary-container/50 cursor-pointer select-none"
             >
               <div
-                className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-surface-container-lowest flex items-center justify-center ${tech.colorClass} group-hover:scale-110 transition-transform duration-300 shadow-inner`}
+                className={`w-9 h-9 sm:w-12 sm:h-12 rounded-xl bg-surface-container-lowest flex items-center justify-center ${tech.colorClass} group-hover:scale-110 transition-transform duration-300 shadow-inner`}
               >
                 {tech.icon}
               </div>
               <span className="font-headline-md text-xs sm:text-sm text-on-surface font-semibold group-hover:text-primary transition-colors">
                 {tech.name}
               </span>
-              <span className="text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-code-inline">
+              <span className="text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-code-inline truncate max-w-full">
                 {tech.badge}
               </span>
             </motion.div>

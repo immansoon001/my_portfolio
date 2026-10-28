@@ -41,13 +41,13 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="inline-flex flex-wrap items-center gap-1.5 sm:gap-2 px-3 py-1.5 rounded-full bg-surface-container-low/80 border border-outline-variant/60 backdrop-blur-md shadow-[0_0_16px_rgba(84,216,232,0.08)] mb-4 sm:mb-6 hover:border-secondary/40 transition-colors duration-300 cursor-default max-w-full"
+          className="inline-flex flex-wrap items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-full bg-surface-container-low/80 border border-outline-variant/60 backdrop-blur-md shadow-[0_0_16px_rgba(84,216,232,0.08)] mb-4 sm:mb-6 hover:border-secondary/40 transition-colors duration-300 cursor-default max-w-full"
         >
           <span className="relative flex h-2 w-2 flex-shrink-0">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary shadow-[0_0_8px_rgba(84,216,232,0.8)]" />
           </span>
-          <span className="font-label-sm text-[10px] sm:text-[11px] tracking-wider uppercase text-on-surface font-semibold">
+          <span className="font-label-sm text-[10px] sm:text-[11px] tracking-wider uppercase text-on-surface font-semibold truncate">
             Mansoon Patel • Full Stack Developer
           </span>
           <span className="text-outline-variant text-[10px] hidden xs:inline">•</span>
@@ -64,7 +64,7 @@ export function Hero() {
           className="relative mb-4 sm:mb-6 w-full"
         >
           <div className="absolute -left-6 -top-10 w-72 h-44 bg-primary-container/15 blur-3xl rounded-full pointer-events-none -z-10" />
-          <h1 className="font-display-hero text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tighter text-on-surface leading-[1.12] sm:leading-[1.06]">
+          <h1 className="font-display-hero text-[2rem] xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tighter text-on-surface leading-[1.14] sm:leading-[1.06] font-bold">
             Turning ideas into{" "}
             <br className="hidden sm:inline" />
             <span className="bg-gradient-to-r from-primary-container via-primary-fixed to-secondary bg-clip-text text-transparent drop-shadow-[0_0_32px_rgba(167,139,250,0.45)] font-bold">
@@ -78,7 +78,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.35 }}
-          className="font-body-lg text-sm sm:text-lg text-on-surface-variant max-w-xl mb-6 sm:mb-9 leading-relaxed font-light"
+          className="font-body-lg text-xs sm:text-base md:text-lg text-on-surface-variant max-w-xl mb-6 sm:mb-9 leading-relaxed font-light"
         >
           Full Stack Developer with B.Tech in Computer Science and certified MERN Stack expertise. Specializing in high-performance web applications using React, Node.js, Express, MongoDB, and applied GenAI.
         </motion.p>
@@ -111,7 +111,7 @@ export function Hero() {
           <a
             href="#contact"
             onClick={(e) => scrollToSection(e, "contact")}
-            className="group px-5 py-3 sm:py-3.5 rounded-full font-label-md text-sm sm:text-base text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center gap-1.5 cursor-pointer min-h-[46px]"
+            className="group px-5 py-3 sm:py-3.5 rounded-full font-label-md text-sm sm:text-base text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center gap-1.5 cursor-pointer min-h-[46px] border border-outline-variant/40 sm:border-transparent text-center"
           >
             <span>Let&apos;s Talk</span>
           </a>
@@ -149,8 +149,9 @@ export function Hero() {
         ref={tiltWrapperRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="w-full lg:w-2/5 flex items-center justify-center relative min-h-[280px] sm:min-h-[400px] overflow-visible cursor-pointer select-none max-w-full"
+        className="w-full lg:w-2/5 flex items-center justify-center relative min-h-[260px] sm:min-h-[400px] overflow-hidden sm:overflow-visible cursor-pointer select-none max-w-full"
         id="hero-tilt-wrapper"
+        style={{ touchAction: "pan-y" }}
       >
         {/* Glow ambient background lights */}
         <div className="absolute w-64 sm:w-96 h-64 sm:h-96 rounded-full bg-primary-container/15 blur-[90px] sm:blur-[100px] pointer-events-none -z-10 animate-pulse" />
