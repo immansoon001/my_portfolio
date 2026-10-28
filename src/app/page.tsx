@@ -23,7 +23,7 @@ export default function Home() {
         <div className="absolute top-[3000px] right-10 w-[500px] h-[500px] bg-secondary/5 blur-[140px] rounded-full pointer-events-none -z-10" />
         <div className="absolute bottom-20 left-1/4 w-[600px] h-[450px] bg-primary-container/10 blur-[150px] rounded-full pointer-events-none -z-10" />
 
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-10 pb-16">
+        <div className="max-w-[1200px] mx-auto px-3.5 sm:px-6 lg:px-8 pt-4 sm:pt-10 pb-16 w-full">
           <div className="flex flex-col w-full text-on-surface">
             {/* 1. Hero Section */}
             <Hero />

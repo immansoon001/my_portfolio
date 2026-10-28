@@ -101,7 +101,7 @@ export function Contact() {
     <section className="w-full pt-12 sm:pt-20 pb-16 sm:pb-28" id="contact">
       <SpotlightCard
         spotlightColor="rgba(167, 139, 250, 0.25)"
-        className="relative w-full rounded-3xl bg-surface-container-low p-5 sm:p-10 md:p-16 flex flex-col items-center text-center overflow-hidden shadow-2xl border border-outline-variant/40 hover:border-primary-container/40 transition-colors duration-500"
+        className="relative w-full rounded-3xl bg-surface-container-low p-4 sm:p-8 md:p-14 flex flex-col items-center text-center overflow-hidden shadow-2xl border border-outline-variant/40 hover:border-primary-container/40 transition-colors duration-500"
       >
         {/* Center Glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary-container/20 blur-[130px] rounded-full pointer-events-none" />
