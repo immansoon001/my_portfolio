@@ -52,7 +52,7 @@ const PROJECTS: Project[] = [
     tags: ["React.js", "Node.js", "Express.js", "MongoDB", "GenAI", "Puppeteer", "Zod", "Tailwind CSS"],
     urlBar: "resumexpert.mansoonpatel.dev",
     imageUrl: "/projects/resume-xpert.jpg",
-    githubUrl: "https://github.com/immansoon001",
+    githubUrl: "https://github.com/immansoon001/Resume-Xpert",
     category: "ai",
     caseStudy: {
       problem:
@@ -78,7 +78,7 @@ const PROJECTS: Project[] = [
     tags: ["React.js", "Node.js", "Express.js", "MongoDB", "WebRTC", "Clerk Auth", "Piston API", "Socket.io"],
     urlBar: "hirebridge.mansoonpatel.dev",
     imageUrl: "/projects/hire-bridge.jpg",
-    githubUrl: "https://github.com/immansoon001",
+    githubUrl: "https://github.com/immansoon001/Hire-Bridge-1",
     category: "webrtc",
     caseStudy: {
       problem:
