@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Check, Copy, Send, Sparkles, Phone, MapPin, ExternalLink } from "lucide-react";
+import { motion } from "framer-motion";
+import { Mail, Check, Copy, Send, Sparkles, Phone } from "lucide-react";
 import confetti from "canvas-confetti";
 import { SpotlightCard } from "./SpotlightCard";
 
@@ -98,51 +98,51 @@ export function Contact() {
   };
 
   return (
-    <section className="w-full pt-20 pb-28" id="contact">
+    <section className="w-full pt-12 sm:pt-20 pb-16 sm:pb-28" id="contact">
       <SpotlightCard
         spotlightColor="rgba(167, 139, 250, 0.25)"
-        className="relative w-full rounded-3xl bg-surface-container-low p-8 sm:p-12 md:p-16 flex flex-col items-center text-center overflow-hidden shadow-2xl border border-outline-variant/40 hover:border-primary-container/40 transition-colors duration-500"
+        className="relative w-full rounded-3xl bg-surface-container-low p-5 sm:p-10 md:p-16 flex flex-col items-center text-center overflow-hidden shadow-2xl border border-outline-variant/40 hover:border-primary-container/40 transition-colors duration-500"
       >
         {/* Center Glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary-container/20 blur-[130px] rounded-full pointer-events-none" />
 
         {/* Label Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container mb-6 hover:border-secondary/40 transition-colors border border-outline-variant/40 shadow-sm">
+        <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-surface-container mb-4 sm:mb-6 hover:border-secondary/40 transition-colors border border-outline-variant/40 shadow-sm">
           <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-          <span className="font-label-sm text-xs uppercase tracking-widest text-on-surface-variant font-semibold">
+          <span className="font-label-sm text-[11px] sm:text-xs uppercase tracking-widest text-on-surface-variant font-semibold">
             GET IN TOUCH
           </span>
         </div>
 
         {/* Headline */}
-        <h2 className="font-headline-xl text-3xl sm:text-5xl md:text-6xl text-on-surface tracking-tight max-w-2xl mb-4 leading-tight font-bold">
+        <h2 className="font-headline-xl text-2xl xs:text-3xl sm:text-5xl md:text-6xl text-on-surface tracking-tight max-w-2xl mb-3 sm:mb-4 leading-tight font-bold">
           Let&apos;s build something great.
         </h2>
 
         {/* Subtitle */}
-        <p className="font-body-lg text-sm sm:text-base md:text-lg text-on-surface-variant max-w-xl mb-8 font-light">
+        <p className="font-body-lg text-xs sm:text-base md:text-lg text-on-surface-variant max-w-xl mb-6 sm:mb-8 font-light">
           Have an opportunity, internship, contract project, or full-time role? I&apos;d love to connect and discuss how I can contribute.
         </p>
 
         {/* Main Action Pills: Email, Phone, GitHub, LinkedIn */}
-        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 z-10 w-full mb-6">
+        <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-2.5 sm:gap-4 z-10 w-full mb-5 sm:mb-6">
           {/* Email Button */}
           <button
             type="button"
             onClick={handleCopyEmail}
-            className="px-6 py-3.5 rounded-full font-label-md text-sm sm:text-base bg-primary-container text-on-primary-container font-semibold transition-all duration-300 hover:bg-primary-fixed hover:shadow-[0_0_30px_rgba(167,139,250,0.5)] hover:-translate-y-0.5 active:translate-y-0 active:scale-95 flex items-center justify-center gap-2.5 group min-h-[48px] shadow-[0_0_20px_rgba(167,139,250,0.3)] cursor-pointer"
+            className="w-full sm:w-auto px-4 sm:px-6 py-3 sm:py-3.5 rounded-full font-label-md text-xs sm:text-base bg-primary-container text-on-primary-container font-semibold transition-all duration-300 hover:bg-primary-fixed hover:shadow-[0_0_30px_rgba(167,139,250,0.5)] active:scale-95 flex items-center justify-center gap-2 group min-h-[46px] shadow-[0_0_20px_rgba(167,139,250,0.3)] cursor-pointer"
             title="Click to copy email address"
           >
             {copiedEmail ? (
               <>
                 <Check className="w-4 h-4 text-on-primary-container" />
-                <span>Copied: {emailAddress}</span>
+                <span className="truncate">Copied: {emailAddress}</span>
               </>
             ) : (
               <>
-                <Mail className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
-                <span>{emailAddress}</span>
-                <Copy className="w-3.5 h-3.5 opacity-60 ml-0.5" />
+                <Mail className="w-4 h-4 transition-transform duration-300 group-hover:scale-110 flex-shrink-0" />
+                <span className="truncate">{emailAddress}</span>
+                <Copy className="w-3.5 h-3.5 opacity-60 ml-0.5 flex-shrink-0" />
               </>
             )}
           </button>
@@ -151,7 +151,7 @@ export function Contact() {
           <button
             type="button"
             onClick={handleCopyPhone}
-            className="px-5 py-3.5 rounded-full font-label-md text-sm sm:text-base bg-surface-container-high text-on-surface hover:text-secondary transition-all duration-300 hover:bg-surface-container hover:-translate-y-0.5 active:scale-95 flex items-center justify-center gap-2 shadow-sm group min-h-[48px] border border-outline-variant/60 cursor-pointer"
+            className="w-full sm:w-auto px-4 sm:px-5 py-3 sm:py-3.5 rounded-full font-label-md text-xs sm:text-base bg-surface-container-high text-on-surface hover:text-secondary transition-all duration-300 hover:bg-surface-container active:scale-95 flex items-center justify-center gap-2 shadow-sm group min-h-[46px] border border-outline-variant/60 cursor-pointer"
             title="Click to copy phone number"
           >
             {copiedPhone ? (
@@ -161,9 +161,9 @@ export function Contact() {
               </>
             ) : (
               <>
-                <Phone className="w-4 h-4 text-secondary transition-transform duration-300 group-hover:scale-110" />
+                <Phone className="w-4 h-4 text-secondary transition-transform duration-300 group-hover:scale-110 flex-shrink-0" />
                 <span>{phoneNumber}</span>
-                <Copy className="w-3.5 h-3.5 opacity-60 ml-0.5" />
+                <Copy className="w-3.5 h-3.5 opacity-60 ml-0.5 flex-shrink-0" />
               </>
             )}
           </button>
@@ -173,9 +173,9 @@ export function Contact() {
             href="https://github.com/immansoon001"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-3.5 rounded-full font-label-md text-sm sm:text-base bg-surface-container text-on-surface hover:text-primary transition-all duration-300 hover:bg-surface-container-high hover:-translate-y-0.5 active:scale-95 flex items-center justify-center gap-2 shadow-sm group min-h-[48px] border border-outline-variant/60"
+            className="w-full sm:w-auto px-4 sm:px-5 py-3 sm:py-3.5 rounded-full font-label-md text-xs sm:text-base bg-surface-container text-on-surface hover:text-primary transition-all duration-300 hover:bg-surface-container-high active:scale-95 flex items-center justify-center gap-2 shadow-sm group min-h-[46px] border border-outline-variant/60"
           >
-            <GithubIcon className="w-4 h-4 fill-currentColor transition-transform duration-300 group-hover:scale-110" />
+            <GithubIcon className="w-4 h-4 fill-currentColor transition-transform duration-300 group-hover:scale-110 flex-shrink-0" />
             <span>immansoon001</span>
           </a>
 
@@ -184,15 +184,15 @@ export function Contact() {
             href="https://www.linkedin.com/in/mansoon-patel-a48aa0296"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-3.5 rounded-full font-label-md text-sm sm:text-base bg-surface-container text-on-surface hover:text-secondary transition-all duration-300 hover:bg-surface-container-high hover:-translate-y-0.5 active:scale-95 flex items-center justify-center gap-2 shadow-sm group min-h-[48px] border border-outline-variant/60"
+            className="w-full sm:w-auto px-4 sm:px-5 py-3 sm:py-3.5 rounded-full font-label-md text-xs sm:text-base bg-surface-container text-on-surface hover:text-secondary transition-all duration-300 hover:bg-surface-container-high active:scale-95 flex items-center justify-center gap-2 shadow-sm group min-h-[46px] border border-outline-variant/60"
           >
-            <LinkedInIcon className="w-4 h-4 fill-currentColor transition-transform duration-300 group-hover:scale-110" />
+            <LinkedInIcon className="w-4 h-4 fill-currentColor transition-transform duration-300 group-hover:scale-110 flex-shrink-0" />
             <span>LinkedIn Profile</span>
           </a>
         </div>
 
         {/* Quick Message Dropdown Option */}
-        <div className="z-10 mt-2">
+        <div className="z-10 mt-1 w-full max-w-md">
           {!showDirectForm ? (
             <button
               onClick={() => setShowDirectForm(true)}
@@ -205,7 +205,7 @@ export function Contact() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               onSubmit={handleSubmitMessage}
-              className="w-full max-w-md mx-auto text-left bg-surface-container-lowest/90 border border-outline-variant/70 rounded-2xl p-5 shadow-2xl mt-4"
+              className="w-full max-w-md mx-auto text-left bg-surface-container-lowest/90 border border-outline-variant/70 rounded-2xl p-4 sm:p-5 shadow-2xl mt-3 sm:mt-4"
             >
               {sentSuccess ? (
                 <div className="text-center py-6">
@@ -226,7 +226,7 @@ export function Contact() {
                     <button
                       type="button"
                       onClick={() => setShowDirectForm(false)}
-                      className="text-xs text-on-surface-variant hover:text-on-surface cursor-pointer"
+                      className="text-xs text-on-surface-variant hover:text-on-surface cursor-pointer p-1"
                     >
                       Cancel
                     </button>
@@ -237,7 +237,7 @@ export function Contact() {
                       placeholder="Your name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-3.5 py-2 text-xs rounded-xl bg-surface-container border border-outline-variant/60 text-on-surface placeholder:text-outline focus:outline-none focus:border-primary-container"
+                      className="w-full px-3.5 py-2.5 text-sm sm:text-xs rounded-xl bg-surface-container border border-outline-variant/60 text-on-surface placeholder:text-outline focus:outline-none focus:border-primary-container"
                     />
                     <input
                       type="email"
@@ -245,7 +245,7 @@ export function Contact() {
                       placeholder="Your email address"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-3.5 py-2 text-xs rounded-xl bg-surface-container border border-outline-variant/60 text-on-surface placeholder:text-outline focus:outline-none focus:border-primary-container"
+                      className="w-full px-3.5 py-2.5 text-sm sm:text-xs rounded-xl bg-surface-container border border-outline-variant/60 text-on-surface placeholder:text-outline focus:outline-none focus:border-primary-container"
                     />
                     <textarea
                       required
@@ -253,12 +253,12 @@ export function Contact() {
                       placeholder="Opportunity details, project scope, or query..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-3.5 py-2 text-xs rounded-xl bg-surface-container border border-outline-variant/60 text-on-surface placeholder:text-outline focus:outline-none focus:border-primary-container resize-none"
+                      className="w-full px-3.5 py-2.5 text-sm sm:text-xs rounded-xl bg-surface-container border border-outline-variant/60 text-on-surface placeholder:text-outline focus:outline-none focus:border-primary-container resize-none"
                     />
                     <button
                       type="submit"
                       disabled={isSending}
-                      className="w-full py-2.5 rounded-xl bg-primary-container text-on-primary-container font-semibold text-xs transition-colors hover:bg-primary-fixed flex items-center justify-center gap-2 cursor-pointer"
+                      className="w-full py-2.5 sm:py-3 rounded-xl bg-primary-container text-on-primary-container font-semibold text-xs sm:text-sm transition-colors hover:bg-primary-fixed flex items-center justify-center gap-2 cursor-pointer min-h-[44px]"
                     >
                       {isSending ? (
                         <span>Sending...</span>

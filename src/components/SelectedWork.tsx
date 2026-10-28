@@ -6,16 +6,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   ExternalLink,
   Lock,
-  Zap,
   Activity,
-  Server,
-  Layers,
   X,
   CheckCircle2,
-  Cpu,
   Video,
   Bot,
-  Sparkles,
 } from "lucide-react";
 import { SpotlightCard } from "./SpotlightCard";
 
@@ -111,9 +106,9 @@ export function SelectedWork() {
       : PROJECTS.filter((p) => p.category === activeFilter);
 
   return (
-    <section className="w-full pt-16 pb-28" id="work">
+    <section className="w-full pt-12 sm:pt-16 pb-16 sm:pb-28" id="work">
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-4">
         <div>
           <div className="inline-flex items-center gap-2 mb-2">
             <span className="w-1.5 h-1.5 rounded-full bg-secondary shadow-[0_0_8px_rgba(84,216,232,0.8)]" />
@@ -121,33 +116,31 @@ export function SelectedWork() {
               PORTFOLIO // SELECTED WORK
             </span>
           </div>
-          <h2 className="font-headline-xl text-3xl sm:text-4xl md:text-5xl text-on-surface tracking-tight">
+          <h2 className="font-headline-xl text-2xl sm:text-4xl md:text-5xl text-on-surface tracking-tight font-bold">
             Featured Products.
           </h2>
-          <p className="font-body-md text-sm sm:text-base text-on-surface-variant mt-2 max-w-2xl font-light">
+          <p className="font-body-md text-xs sm:text-base text-on-surface-variant mt-1.5 sm:mt-2 max-w-2xl font-light">
             Production-grade full-stack architectures, GenAI platforms, and WebRTC real-time collaboration tools engineered by Mansoon Patel.
           </p>
         </div>
 
         {/* Filter Pills */}
-        <div className="flex flex-wrap items-center gap-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-low border border-outline-variant/60 font-code-inline text-[11px] text-on-surface-variant shadow-sm mr-2">
-            <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
+        <div className="flex flex-wrap items-center gap-2 max-w-full">
+          <div className="hidden xs:inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-low border border-outline-variant/60 font-code-inline text-[11px] text-on-surface-variant shadow-sm mr-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
             <span className="text-on-surface font-medium">{PROJECTS.length} Key Projects</span>
-            <span className="text-outline-variant">•</span>
-            <span className="text-secondary">Production Verified</span>
           </div>
 
-          <div className="flex items-center bg-surface-container-low/80 border border-outline-variant/60 p-1 rounded-full text-xs font-label-md">
+          <div className="flex items-center bg-surface-container-low/80 border border-outline-variant/60 p-1 rounded-full text-xs font-label-md overflow-x-auto no-scrollbar max-w-full">
             {[
               { id: "all", label: "All Projects" },
               { id: "ai", label: "GenAI & Career" },
-              { id: "webrtc", label: "WebRTC & Real-time" },
+              { id: "webrtc", label: "WebRTC & Video" },
             ].map((f) => (
               <button
                 key={f.id}
                 onClick={() => setActiveFilter(f.id as typeof activeFilter)}
-                className={`px-3 py-1 rounded-full transition-all cursor-pointer ${
+                className={`px-3 py-1 rounded-full transition-all whitespace-nowrap cursor-pointer text-xs ${
                   activeFilter === f.id
                     ? "bg-primary-container text-on-primary-container font-semibold shadow-sm"
                     : "text-on-surface-variant hover:text-on-surface"
@@ -160,41 +153,41 @@ export function SelectedWork() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-10">
+      <div className="flex flex-col gap-8 sm:gap-10">
         {/* Project 1: AI Mock interview & ResumeXpert */}
         {filteredProjects.find((p) => p.id === "resume-xpert") && (
           <SpotlightCard
             spotlightColor="rgba(167, 139, 250, 0.22)"
-            className="group p-6 md:p-8 lg:p-10 shadow-sm hover:shadow-[0_0_35px_rgba(167,139,250,0.18)] hover:border-primary-container/60 transition-all duration-500"
+            className="group p-4 sm:p-6 md:p-8 lg:p-10 shadow-sm hover:shadow-[0_0_35px_rgba(167,139,250,0.18)] hover:border-primary-container/60 transition-all duration-500"
           >
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary-container/0 to-transparent group-hover:via-primary-container/70 transition-all duration-500" />
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-center">
               {/* Copy & Info */}
               <div className="lg:col-span-5 flex flex-col justify-between h-full">
                 <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container text-secondary text-[11px] font-code-inline border border-secondary/30 mb-4 transition-colors group-hover:border-secondary/50">
-                    <Bot className="w-3.5 h-3.5 text-secondary" />
-                    <span>{PROJECTS[0].metric}</span>
+                  <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 rounded-full bg-surface-container text-secondary text-[10px] sm:text-[11px] font-code-inline border border-secondary/30 mb-3 sm:mb-4 transition-colors group-hover:border-secondary/50 max-w-full">
+                    <Bot className="w-3.5 h-3.5 text-secondary flex-shrink-0" />
+                    <span className="truncate">{PROJECTS[0].metric}</span>
                   </div>
 
-                  <h3 className="font-headline-xl text-2xl sm:text-3xl font-bold text-on-surface tracking-tight mb-2 transition-colors group-hover:text-primary-fixed">
+                  <h3 className="font-headline-xl text-xl sm:text-2xl md:text-3xl font-bold text-on-surface tracking-tight mb-1.5 sm:mb-2 transition-colors group-hover:text-primary-fixed">
                     {PROJECTS[0].title}
                   </h3>
 
-                  <p className="font-headline-md text-sm sm:text-base text-primary font-medium mb-4 leading-snug">
+                  <p className="font-headline-md text-xs sm:text-sm md:text-base text-primary font-medium mb-3 sm:mb-4 leading-snug">
                     {PROJECTS[0].subtitle}
                   </p>
 
-                  <p className="font-body-md text-sm sm:text-base text-on-surface-variant font-light leading-relaxed mb-6">
+                  <p className="font-body-md text-xs sm:text-sm md:text-base text-on-surface-variant font-light leading-relaxed mb-4 sm:mb-6">
                     {PROJECTS[0].description}
                   </p>
 
                   {/* Tech Tags */}
-                  <div className="flex flex-wrap gap-2 mb-8">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-6 sm:mb-8">
                     {PROJECTS[0].tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2.5 py-1 rounded-md bg-surface-container-high border border-outline-variant/60 text-xs font-code-inline text-on-surface transition-colors hover:border-primary-container/50"
+                        className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-surface-container-high border border-outline-variant/60 text-[11px] sm:text-xs font-code-inline text-on-surface transition-colors hover:border-primary-container/50"
                       >
                         {tag}
                       </span>
@@ -203,11 +196,11 @@ export function SelectedWork() {
                 </div>
 
                 {/* Actions */}
-                <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-outline-variant/60">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 pt-4 border-t border-outline-variant/60 w-full">
                   <button
                     type="button"
                     onClick={() => setSelectedProject(PROJECTS[0])}
-                    className="px-5 py-2.5 rounded-full font-label-md text-xs sm:text-sm bg-primary-container text-on-primary-container font-semibold transition-all duration-300 hover:bg-primary-fixed hover:shadow-[0_0_20px_rgba(167,139,250,0.4)] active:scale-95 flex items-center justify-center gap-2 group/btn flex-1 sm:flex-initial min-h-[44px] cursor-pointer"
+                    className="px-5 py-2.5 rounded-full font-label-md text-xs sm:text-sm bg-primary-container text-on-primary-container font-semibold transition-all duration-300 hover:bg-primary-fixed hover:shadow-[0_0_20px_rgba(167,139,250,0.4)] active:scale-95 flex items-center justify-center gap-2 group/btn min-h-[44px] cursor-pointer"
                   >
                     <span>View Architecture</span>
                     <ExternalLink className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
@@ -217,7 +210,7 @@ export function SelectedWork() {
                     href={PROJECTS[0].githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2.5 rounded-full font-label-md text-xs sm:text-sm bg-surface-container text-on-surface hover:text-primary transition-all duration-300 hover:bg-surface-container-high border border-outline-variant/60 active:scale-95 flex items-center justify-center gap-2 group/btn flex-1 sm:flex-initial min-h-[44px]"
+                    className="px-4 py-2.5 rounded-full font-label-md text-xs sm:text-sm bg-surface-container text-on-surface hover:text-primary transition-all duration-300 hover:bg-surface-container-high border border-outline-variant/60 active:scale-95 flex items-center justify-center gap-2 group/btn min-h-[44px]"
                   >
                     <GithubIcon className="w-4 h-4 transition-transform duration-300 group-hover/btn:scale-110" />
                     <span>immansoon001</span>
@@ -232,17 +225,17 @@ export function SelectedWork() {
                   className="interactive-preview rounded-2xl bg-surface-container-lowest border border-outline-variant/70 overflow-hidden shadow-2xl cursor-pointer"
                 >
                   {/* Browser Chrome Header */}
-                  <div className="h-10 bg-surface-container-high/90 px-4 flex items-center justify-between border-b border-outline-variant/60">
-                    <div className="flex items-center gap-1.5">
-                      <span className="w-2.5 h-2.5 rounded-full bg-error/80" />
-                      <span className="w-2.5 h-2.5 rounded-full bg-tertiary/80" />
-                      <span className="w-2.5 h-2.5 rounded-full bg-secondary/80" />
+                  <div className="h-9 sm:h-10 bg-surface-container-high/90 px-3 sm:px-4 flex items-center justify-between border-b border-outline-variant/60">
+                    <div className="flex items-center gap-1.5 flex-shrink-0">
+                      <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-error/80" />
+                      <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-tertiary/80" />
+                      <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-secondary/80" />
                     </div>
-                    <div className="px-4 py-1 rounded bg-surface-container-lowest/80 text-[11px] font-code-inline text-on-surface-variant border border-outline-variant/40 flex items-center gap-1.5">
-                      <Lock className="w-3 h-3 text-secondary" />
-                      <span>{PROJECTS[0].urlBar}</span>
+                    <div className="px-3 sm:px-4 py-0.5 sm:py-1 rounded bg-surface-container-lowest/80 text-[10px] sm:text-[11px] font-code-inline text-on-surface-variant border border-outline-variant/40 flex items-center gap-1.5 max-w-[200px] sm:max-w-xs">
+                      <Lock className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-secondary flex-shrink-0" />
+                      <span className="truncate">{PROJECTS[0].urlBar}</span>
                     </div>
-                    <div className="w-10" />
+                    <div className="w-6 sm:w-10" />
                   </div>
 
                   {/* Browser Content Image */}
@@ -266,36 +259,36 @@ export function SelectedWork() {
         {filteredProjects.find((p) => p.id === "hire-bridge") && (
           <SpotlightCard
             spotlightColor="rgba(84, 216, 232, 0.2)"
-            className="group p-6 md:p-8 lg:p-10 shadow-sm hover:shadow-[0_0_35px_rgba(84,216,232,0.18)] hover:border-secondary/60 transition-all duration-500"
+            className="group p-4 sm:p-6 md:p-8 lg:p-10 shadow-sm hover:shadow-[0_0_35px_rgba(84,216,232,0.18)] hover:border-secondary/60 transition-all duration-500"
           >
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-secondary/0 to-transparent group-hover:via-secondary/70 transition-all duration-500" />
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-center">
               {/* Copy & Info */}
               <div className="lg:col-span-5 flex flex-col justify-between h-full">
                 <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container text-secondary text-[11px] font-code-inline border border-secondary/30 mb-4 transition-colors group-hover:border-secondary/50">
-                    <Video className="w-3.5 h-3.5 text-secondary" />
-                    <span>{PROJECTS[1].metric}</span>
+                  <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 rounded-full bg-surface-container text-secondary text-[10px] sm:text-[11px] font-code-inline border border-secondary/30 mb-3 sm:mb-4 transition-colors group-hover:border-secondary/50 max-w-full">
+                    <Video className="w-3.5 h-3.5 text-secondary flex-shrink-0" />
+                    <span className="truncate">{PROJECTS[1].metric}</span>
                   </div>
 
-                  <h3 className="font-headline-xl text-2xl sm:text-3xl font-bold text-on-surface tracking-tight mb-2 transition-colors group-hover:text-secondary-fixed">
+                  <h3 className="font-headline-xl text-xl sm:text-2xl md:text-3xl font-bold text-on-surface tracking-tight mb-1.5 sm:mb-2 transition-colors group-hover:text-secondary-fixed">
                     {PROJECTS[1].title}
                   </h3>
 
-                  <p className="font-headline-md text-sm sm:text-base text-secondary font-medium mb-4 leading-snug">
+                  <p className="font-headline-md text-xs sm:text-sm md:text-base text-secondary font-medium mb-3 sm:mb-4 leading-snug">
                     {PROJECTS[1].subtitle}
                   </p>
 
-                  <p className="font-body-md text-sm sm:text-base text-on-surface-variant font-light leading-relaxed mb-6">
+                  <p className="font-body-md text-xs sm:text-sm md:text-base text-on-surface-variant font-light leading-relaxed mb-4 sm:mb-6">
                     {PROJECTS[1].description}
                   </p>
 
                   {/* Tech Tags */}
-                  <div className="flex flex-wrap gap-2 mb-8">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-6 sm:mb-8">
                     {PROJECTS[1].tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2.5 py-1 rounded-md bg-surface-container-high border border-outline-variant/60 text-xs font-code-inline text-on-surface transition-colors hover:border-secondary/50"
+                        className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-surface-container-high border border-outline-variant/60 text-[11px] sm:text-xs font-code-inline text-on-surface transition-colors hover:border-secondary/50"
                       >
                         {tag}
                       </span>
@@ -304,11 +297,11 @@ export function SelectedWork() {
                 </div>
 
                 {/* Actions */}
-                <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-outline-variant/60">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 pt-4 border-t border-outline-variant/60 w-full">
                   <button
                     type="button"
                     onClick={() => setSelectedProject(PROJECTS[1])}
-                    className="px-5 py-2.5 rounded-full font-label-md text-xs sm:text-sm bg-secondary text-on-secondary font-semibold transition-all duration-300 hover:bg-secondary-fixed hover:shadow-[0_0_20px_rgba(84,216,232,0.4)] active:scale-95 flex items-center justify-center gap-2 group/btn flex-1 sm:flex-initial min-h-[44px] cursor-pointer"
+                    className="px-5 py-2.5 rounded-full font-label-md text-xs sm:text-sm bg-secondary text-on-secondary font-semibold transition-all duration-300 hover:bg-secondary-fixed hover:shadow-[0_0_20px_rgba(84,216,232,0.4)] active:scale-95 flex items-center justify-center gap-2 group/btn min-h-[44px] cursor-pointer"
                   >
                     <span>View Architecture</span>
                     <ExternalLink className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
@@ -318,7 +311,7 @@ export function SelectedWork() {
                     href={PROJECTS[1].githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2.5 rounded-full font-label-md text-xs sm:text-sm bg-surface-container text-on-surface hover:text-secondary transition-all duration-300 hover:bg-surface-container-high border border-outline-variant/60 active:scale-95 flex items-center justify-center gap-2 group/btn flex-1 sm:flex-initial min-h-[44px]"
+                    className="px-4 py-2.5 rounded-full font-label-md text-xs sm:text-sm bg-surface-container text-on-surface hover:text-secondary transition-all duration-300 hover:bg-surface-container-high border border-outline-variant/60 active:scale-95 flex items-center justify-center gap-2 group/btn min-h-[44px]"
                   >
                     <GithubIcon className="w-4 h-4 transition-transform duration-300 group-hover/btn:scale-110" />
                     <span>immansoon001</span>
@@ -333,17 +326,17 @@ export function SelectedWork() {
                   className="interactive-preview rounded-2xl bg-surface-container-lowest border border-outline-variant/70 overflow-hidden shadow-2xl cursor-pointer"
                 >
                   {/* Browser Chrome Header */}
-                  <div className="h-10 bg-surface-container-high/90 px-4 flex items-center justify-between border-b border-outline-variant/60">
-                    <div className="flex items-center gap-1.5">
-                      <span className="w-2.5 h-2.5 rounded-full bg-error/80" />
-                      <span className="w-2.5 h-2.5 rounded-full bg-tertiary/80" />
-                      <span className="w-2.5 h-2.5 rounded-full bg-secondary/80" />
+                  <div className="h-9 sm:h-10 bg-surface-container-high/90 px-3 sm:px-4 flex items-center justify-between border-b border-outline-variant/60">
+                    <div className="flex items-center gap-1.5 flex-shrink-0">
+                      <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-error/80" />
+                      <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-tertiary/80" />
+                      <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-secondary/80" />
                     </div>
-                    <div className="px-4 py-1 rounded bg-surface-container-lowest/80 text-[11px] font-code-inline text-on-surface-variant border border-outline-variant/40 flex items-center gap-1.5">
-                      <Lock className="w-3 h-3 text-secondary" />
-                      <span>{PROJECTS[1].urlBar}</span>
+                    <div className="px-3 sm:px-4 py-0.5 sm:py-1 rounded bg-surface-container-lowest/80 text-[10px] sm:text-[11px] font-code-inline text-on-surface-variant border border-outline-variant/40 flex items-center gap-1.5 max-w-[200px] sm:max-w-xs">
+                      <Lock className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-secondary flex-shrink-0" />
+                      <span className="truncate">{PROJECTS[1].urlBar}</span>
                     </div>
-                    <div className="w-10" />
+                    <div className="w-6 sm:w-10" />
                   </div>
 
                   {/* Browser Content Image */}
@@ -366,36 +359,36 @@ export function SelectedWork() {
       {/* Case Study Deep-Dive Modal */}
       <AnimatePresence>
         {selectedProject && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md">
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl bg-surface-container border border-outline-variant p-6 sm:p-8 shadow-2xl"
+              className="relative w-full max-w-2xl max-h-[88vh] overflow-y-auto rounded-2xl sm:rounded-3xl bg-surface-container border border-outline-variant p-4 sm:p-7 shadow-2xl"
             >
               <button
                 type="button"
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-5 right-5 p-2 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer"
+                className="absolute top-4 right-4 p-2 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer"
                 aria-label="Close modal"
               >
                 <X className="w-4 h-4" />
               </button>
 
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-lowest text-secondary text-xs font-code-inline border border-secondary/30 mb-3">
-                <Activity className="w-3 h-3 text-secondary" />
-                <span>{selectedProject.metric}</span>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest text-secondary text-xs font-code-inline border border-secondary/30 mb-3 max-w-[calc(100%-48px)] truncate">
+                <Activity className="w-3 h-3 text-secondary flex-shrink-0" />
+                <span className="truncate">{selectedProject.metric}</span>
               </div>
 
-              <h3 className="font-headline-xl text-2xl sm:text-3xl text-on-surface font-bold mb-1">
+              <h3 className="font-headline-xl text-xl sm:text-2xl md:text-3xl text-on-surface font-bold mb-1">
                 {selectedProject.title}
               </h3>
-              <p className="text-primary font-medium text-sm sm:text-base mb-6">
+              <p className="text-primary font-medium text-xs sm:text-sm md:text-base mb-5">
                 {selectedProject.subtitle}
               </p>
 
               {/* Image Preview */}
-              <div className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-outline-variant/60 mb-6 bg-surface-container-lowest">
+              <div className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-outline-variant/60 mb-5 bg-surface-container-lowest">
                 <Image
                   src={selectedProject.imageUrl}
                   alt={selectedProject.title}
@@ -405,8 +398,8 @@ export function SelectedWork() {
               </div>
 
               {/* Case Study Details */}
-              <div className="space-y-4 mb-6">
-                <div className="p-4 rounded-2xl bg-surface-container-low border border-outline-variant/40">
+              <div className="space-y-3.5 mb-5">
+                <div className="p-3.5 rounded-2xl bg-surface-container-low border border-outline-variant/40">
                   <span className="font-semibold text-xs text-primary uppercase tracking-wider block mb-1">
                     Engineering Challenge &amp; Problem
                   </span>
@@ -415,7 +408,7 @@ export function SelectedWork() {
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-surface-container-low border border-outline-variant/40">
+                <div className="p-3.5 rounded-2xl bg-surface-container-low border border-outline-variant/40">
                   <span className="font-semibold text-xs text-secondary uppercase tracking-wider block mb-1">
                     System Architecture &amp; Implementation
                   </span>
@@ -424,7 +417,7 @@ export function SelectedWork() {
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-surface-container-low border border-outline-variant/40">
+                <div className="p-3.5 rounded-2xl bg-surface-container-low border border-outline-variant/40">
                   <span className="font-semibold text-xs text-on-surface uppercase tracking-wider block mb-2">
                     Key Performance Highlights
                   </span>
@@ -443,15 +436,15 @@ export function SelectedWork() {
               </div>
 
               {/* Tech Stack Pills */}
-              <div className="mb-6">
+              <div className="mb-5">
                 <span className="text-xs text-on-surface-variant uppercase tracking-wider block mb-2 font-medium">
                   Technologies Deployed
                 </span>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {selectedProject.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/60 text-xs font-code-inline text-on-surface"
+                      className="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-surface-container-high border border-outline-variant/60 text-[11px] sm:text-xs font-code-inline text-on-surface"
                     >
                       {tag}
                     </span>
@@ -460,7 +453,7 @@ export function SelectedWork() {
               </div>
 
               {/* Footer Modal Actions */}
-              <div className="flex items-center justify-end gap-3 pt-3 border-t border-outline-variant/60">
+              <div className="flex items-center justify-end gap-2.5 sm:gap-3 pt-3 border-t border-outline-variant/60">
                 <button
                   type="button"
                   onClick={() => setSelectedProject(null)}

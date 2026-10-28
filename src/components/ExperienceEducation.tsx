@@ -10,11 +10,7 @@ import {
   Calendar,
   MapPin,
   CheckCircle2,
-  ExternalLink,
   Sparkles,
-  ArrowUpRight,
-  Code2,
-  Terminal,
   ShieldCheck,
 } from "lucide-react";
 import { SpotlightCard } from "./SpotlightCard";
@@ -177,9 +173,9 @@ export function ExperienceEducation() {
   );
 
   return (
-    <section className="w-full pt-16 pb-24" id="experience">
+    <section className="w-full pt-12 sm:pt-16 pb-16 sm:pb-24" id="experience">
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-4">
         <div>
           <div className="inline-flex items-center gap-2 mb-2">
             <span className="w-1.5 h-1.5 rounded-full bg-secondary shadow-[0_0_8px_rgba(84,216,232,0.8)]" />
@@ -187,16 +183,16 @@ export function ExperienceEducation() {
               TRAJECTORY & CREDENTIALS
             </span>
           </div>
-          <h2 className="font-headline-xl text-3xl sm:text-4xl md:text-5xl text-on-surface tracking-tight">
+          <h2 className="font-headline-xl text-2xl sm:text-4xl md:text-5xl text-on-surface tracking-tight font-bold">
             Experience &amp; Education.
           </h2>
-          <p className="font-body-md text-sm sm:text-base text-on-surface-variant mt-2 max-w-2xl font-light">
+          <p className="font-body-md text-xs sm:text-base text-on-surface-variant mt-1.5 sm:mt-2 max-w-2xl font-light">
             Verified academic rigor, professional MERN industry training, Microsoft certifications, and hackathon milestones.
           </p>
         </div>
 
         {/* Tab Switcher Pills */}
-        <div className="flex items-center bg-surface-container-low/90 border border-outline-variant/60 p-1.5 rounded-full text-xs font-label-md overflow-x-auto shadow-sm">
+        <div className="flex items-center bg-surface-container-low/90 border border-outline-variant/60 p-1 sm:p-1.5 rounded-full text-xs font-label-md overflow-x-auto no-scrollbar max-w-full shadow-sm">
           {[
             { id: "experience", label: "Experience", icon: Briefcase },
             { id: "education", label: "Education", icon: GraduationCap },
@@ -209,7 +205,7 @@ export function ExperienceEducation() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as typeof activeTab)}
-                className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full transition-all duration-300 whitespace-nowrap cursor-pointer ${
+                className={`flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full transition-all duration-300 whitespace-nowrap cursor-pointer flex-shrink-0 text-xs ${
                   isActive
                     ? "bg-primary-container text-on-primary-container font-semibold shadow-sm"
                     : "text-on-surface-variant hover:text-on-surface"
@@ -239,7 +235,7 @@ export function ExperienceEducation() {
               <SpotlightCard
                 key={idx}
                 spotlightColor="rgba(167, 139, 250, 0.2)"
-                className="p-6 sm:p-8 md:p-10 border border-outline-variant/50 hover:border-primary-container/60 transition-all duration-500 shadow-sm"
+                className="p-4 sm:p-7 md:p-10 border border-outline-variant/50 hover:border-primary-container/60 transition-all duration-500 shadow-sm"
               >
                 <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
                   {/* Left Column: Role & Meta */}
@@ -249,20 +245,20 @@ export function ExperienceEducation() {
                       <span>{item.type}</span>
                     </div>
 
-                    <h3 className="font-headline-xl text-2xl sm:text-3xl font-bold text-on-surface tracking-tight mb-1">
+                    <h3 className="font-headline-xl text-xl sm:text-2xl md:text-3xl font-bold text-on-surface tracking-tight mb-1">
                       {item.role}
                     </h3>
-                    <h4 className="font-headline-md text-base sm:text-lg text-primary-fixed font-semibold mb-4">
+                    <h4 className="font-headline-md text-sm sm:text-base md:text-lg text-primary-fixed font-semibold mb-3 sm:mb-4">
                       {item.company}
                     </h4>
 
-                    <div className="flex flex-col gap-2 text-xs font-code-inline text-on-surface-variant mb-6">
+                    <div className="flex flex-col gap-1.5 sm:gap-2 text-xs font-code-inline text-on-surface-variant mb-4 sm:mb-6">
                       <div className="flex items-center gap-2">
-                        <Calendar className="w-3.5 h-3.5 text-secondary" />
+                        <Calendar className="w-3.5 h-3.5 text-secondary flex-shrink-0" />
                         <span>{item.period}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <MapPin className="w-3.5 h-3.5 text-primary" />
+                        <MapPin className="w-3.5 h-3.5 text-primary flex-shrink-0" />
                         <span>{item.location}</span>
                       </div>
                     </div>
@@ -274,14 +270,14 @@ export function ExperienceEducation() {
                   </div>
 
                   {/* Right Column: Key Learnings & Stack */}
-                  <div className="lg:w-3/5 lg:border-l lg:border-outline-variant/50 lg:pl-8 flex flex-col justify-between">
+                  <div className="lg:w-3/5 pt-5 border-t border-outline-variant/40 lg:pt-0 lg:border-t-0 lg:border-l lg:border-outline-variant/50 lg:pl-8 flex flex-col justify-between">
                     <div>
-                      <h5 className="font-label-sm text-xs uppercase tracking-widest text-primary-fixed mb-4 font-semibold">
+                      <h5 className="font-label-sm text-xs uppercase tracking-widest text-primary-fixed mb-3 sm:mb-4 font-semibold">
                         Key Responsibilities &amp; Impact
                       </h5>
-                      <ul className="space-y-3 mb-6">
+                      <ul className="space-y-2.5 sm:space-y-3 mb-5 sm:mb-6">
                         {item.description.map((desc, dIdx) => (
-                          <li key={dIdx} className="flex items-start gap-2.5 text-sm text-on-surface-variant leading-relaxed font-light">
+                          <li key={dIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-on-surface-variant leading-relaxed font-light">
                             <CheckCircle2 className="w-4 h-4 text-secondary flex-shrink-0 mt-0.5" />
                             <span>{desc}</span>
                           </li>
@@ -293,7 +289,7 @@ export function ExperienceEducation() {
                       <span className="text-xs uppercase tracking-wider text-outline block mb-2 font-medium">
                         Skills Applied
                       </span>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-1.5 sm:gap-2">
                         {item.skills.map((skill) => (
                           <span
                             key={skill}
@@ -320,34 +316,34 @@ export function ExperienceEducation() {
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.35 }}
             id="education"
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6"
           >
             {EDUCATIONS.map((edu, idx) => (
               <SpotlightCard
                 key={idx}
                 spotlightColor="rgba(84, 216, 232, 0.15)"
-                className="p-6 sm:p-8 flex flex-col justify-between border border-outline-variant/50 hover:border-secondary/50 transition-all duration-500 shadow-sm"
+                className="p-4 sm:p-7 flex flex-col justify-between border border-outline-variant/50 hover:border-secondary/50 transition-all duration-500 shadow-sm"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/30 text-secondary text-[11px] font-code-inline font-medium">
-                      <GraduationCap className="w-3.5 h-3.5" />
+                  <div className="flex items-center justify-between mb-3 sm:mb-4 gap-2 flex-wrap">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary/10 border border-secondary/30 text-secondary text-[10px] sm:text-[11px] font-code-inline font-medium">
+                      <GraduationCap className="w-3.5 h-3.5 flex-shrink-0" />
                       <span>{edu.honor}</span>
                     </span>
-                    <span className="text-xs font-code-inline text-on-surface-variant flex items-center gap-1">
+                    <span className="text-[11px] font-code-inline text-on-surface-variant flex items-center gap-1">
                       <Calendar className="w-3 h-3" />
                       <span>{edu.period}</span>
                     </span>
                   </div>
 
-                  <h3 className="font-headline-xl text-xl sm:text-2xl font-bold text-on-surface tracking-tight mb-2">
+                  <h3 className="font-headline-xl text-lg sm:text-xl md:text-2xl font-bold text-on-surface tracking-tight mb-1.5 sm:mb-2">
                     {edu.degree}
                   </h3>
-                  <h4 className="font-headline-md text-sm sm:text-base text-primary-container font-semibold mb-3">
+                  <h4 className="font-headline-md text-xs sm:text-sm md:text-base text-primary-container font-semibold mb-2.5 sm:mb-3">
                     {edu.institution}
                   </h4>
 
-                  <div className="flex items-center gap-1.5 text-xs text-outline mb-5">
+                  <div className="flex items-center gap-1.5 text-xs text-outline mb-4">
                     <MapPin className="w-3.5 h-3.5" />
                     <span>{edu.location}</span>
                   </div>
@@ -362,7 +358,7 @@ export function ExperienceEducation() {
                   </ul>
                 </div>
 
-                <div className="pt-4 border-t border-outline-variant/40 mt-4 flex items-center justify-between">
+                <div className="pt-3.5 border-t border-outline-variant/40 mt-3 sm:mt-4 flex items-center justify-between">
                   <span className="text-[11px] font-code-inline text-on-surface-variant">Academic Track</span>
                   <span className="text-xs font-semibold text-secondary">Verified Record</span>
                 </div>
@@ -379,13 +375,13 @@ export function ExperienceEducation() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.35 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-5"
           >
             {CERTIFICATIONS.map((cert, idx) => (
               <SpotlightCard
                 key={idx}
                 spotlightColor="rgba(167, 139, 250, 0.16)"
-                className="p-5 sm:p-6 flex flex-col justify-between border border-outline-variant/50 hover:border-primary-container/50 transition-all duration-300"
+                className="p-4 sm:p-6 flex flex-col justify-between border border-outline-variant/50 hover:border-primary-container/50 transition-all duration-300"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
@@ -395,10 +391,10 @@ export function ExperienceEducation() {
                     <ShieldCheck className="w-4 h-4 text-secondary/80" />
                   </div>
 
-                  <h4 className="font-headline-md text-base sm:text-lg font-bold text-on-surface mb-2 leading-snug">
+                  <h4 className="font-headline-md text-sm sm:text-base md:text-lg font-bold text-on-surface mb-1.5 sm:mb-2 leading-snug">
                     {cert.title}
                   </h4>
-                  <p className="text-xs text-primary font-semibold mb-4">
+                  <p className="text-xs text-primary font-semibold mb-3 sm:mb-4">
                     Issued by {cert.issuer}
                   </p>
                 </div>
@@ -420,28 +416,28 @@ export function ExperienceEducation() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.35 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6"
           >
             {ACHIEVEMENTS.map((ach, idx) => (
               <SpotlightCard
                 key={idx}
                 spotlightColor="rgba(84, 216, 232, 0.18)"
-                className="p-6 sm:p-7 border border-outline-variant/50 hover:border-secondary/60 transition-all duration-500 shadow-sm flex flex-col justify-between"
+                className="p-4 sm:p-7 border border-outline-variant/50 hover:border-secondary/60 transition-all duration-500 shadow-sm flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <div className="w-10 h-10 rounded-xl bg-secondary/10 border border-secondary/30 flex items-center justify-center text-secondary">
-                      <Trophy className="w-5 h-5" />
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-secondary/10 border border-secondary/30 flex items-center justify-center text-secondary">
+                      <Trophy className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
-                    <span className="px-3 py-1 rounded-full bg-surface-container text-secondary text-[11px] font-code-inline border border-secondary/30">
+                    <span className="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-surface-container text-secondary text-[10px] sm:text-[11px] font-code-inline border border-secondary/30">
                       {ach.badge}
                     </span>
                   </div>
 
-                  <h4 className="font-headline-xl text-lg sm:text-xl font-bold text-on-surface mb-1">
+                  <h4 className="font-headline-xl text-base sm:text-lg md:text-xl font-bold text-on-surface mb-1">
                     {ach.title}
                   </h4>
-                  <span className="font-label-md text-xs text-primary font-semibold block mb-3">
+                  <span className="font-label-md text-xs text-primary font-semibold block mb-2 sm:mb-3">
                     {ach.organization} • {ach.period}
                   </span>
 
@@ -450,7 +446,7 @@ export function ExperienceEducation() {
                   </p>
                 </div>
 
-                <div className="mt-5 pt-3 border-t border-outline-variant/40 flex items-center justify-between text-xs font-code-inline text-outline">
+                <div className="mt-4 sm:mt-5 pt-3 border-t border-outline-variant/40 flex items-center justify-between text-xs font-code-inline text-outline">
                   <span>Recognition &amp; Merit</span>
                   <span className="text-secondary font-medium">★ Verified Milestone</span>
                 </div>

@@ -4,15 +4,12 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Code,
-  Layers,
   Database,
   Cpu,
   Terminal,
   Sparkles,
   Boxes,
-  CheckCircle2,
 } from "lucide-react";
-import { SpotlightCard } from "./SpotlightCard";
 
 interface TechItem {
   name: string;
@@ -215,9 +212,9 @@ export function Toolkit() {
       : TECH_STACK.filter((item) => item.category === filterCategory);
 
   return (
-    <section className="w-full py-20" id="toolkit">
+    <section className="w-full py-12 sm:py-20" id="toolkit">
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-4">
         <div>
           <div className="inline-flex items-center gap-2 mb-2">
             <span className="w-1.5 h-1.5 rounded-full bg-secondary shadow-[0_0_8px_rgba(84,216,232,0.8)]" />
@@ -225,16 +222,16 @@ export function Toolkit() {
               TECHNICAL PROFICIENCY
             </span>
           </div>
-          <h2 className="font-headline-xl text-3xl sm:text-4xl md:text-5xl text-on-surface tracking-tight">
+          <h2 className="font-headline-xl text-2xl sm:text-4xl md:text-5xl text-on-surface tracking-tight font-bold">
             My toolkit.
           </h2>
-          <p className="font-body-md text-sm sm:text-base text-on-surface-variant mt-2 max-w-xl font-light">
+          <p className="font-body-md text-xs sm:text-base text-on-surface-variant mt-1.5 sm:mt-2 max-w-xl font-light">
             Verified technologies and developer tooling mastered across MERN stack development, GenAI integrations, and computer science engineering.
           </p>
         </div>
 
         {/* Filter Pills */}
-        <div className="flex items-center bg-surface-container-low/90 border border-outline-variant/60 p-1.5 rounded-full text-xs font-label-md overflow-x-auto shadow-sm">
+        <div className="w-full sm:w-auto flex items-center bg-surface-container-low/90 border border-outline-variant/60 p-1 sm:p-1.5 rounded-full text-xs font-label-md overflow-x-auto no-scrollbar max-w-full flex-nowrap shadow-sm">
           {[
             { id: "all", label: "All" },
             { id: "frontend", label: "Frontend" },
@@ -247,7 +244,7 @@ export function Toolkit() {
             <button
               key={cat.id}
               onClick={() => setFilterCategory(cat.id)}
-              className={`px-3 py-1 rounded-full transition-all duration-300 whitespace-nowrap cursor-pointer ${
+              className={`px-2.5 sm:px-3 py-1 rounded-full transition-all duration-300 whitespace-nowrap cursor-pointer flex-shrink-0 text-xs ${
                 filterCategory === cat.id
                   ? "bg-primary-container text-on-primary-container font-semibold shadow-sm"
                   : "text-on-surface-variant hover:text-on-surface"
@@ -262,7 +259,7 @@ export function Toolkit() {
       {/* Grid of Tech Cards */}
       <motion.div
         layout
-        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 sm:gap-4"
       >
         <AnimatePresence>
           {filteredStack.map((tech, index) => (
@@ -274,17 +271,17 @@ export function Toolkit() {
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.3, delay: index * 0.04 }}
               onClick={() => setActiveTech(tech)}
-              className="group p-5 rounded-2xl bg-surface-container-low hover:bg-surface-container hover:shadow-[0_0_24px_rgba(167,139,250,0.18)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col items-center justify-center text-center gap-2.5 border border-outline-variant/30 hover:border-primary-container/50 cursor-pointer select-none"
+              className="group p-3.5 sm:p-5 rounded-2xl bg-surface-container-low hover:bg-surface-container hover:shadow-[0_0_24px_rgba(167,139,250,0.18)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col items-center justify-center text-center gap-2 sm:gap-2.5 border border-outline-variant/30 hover:border-primary-container/50 cursor-pointer select-none"
             >
               <div
-                className={`w-12 h-12 rounded-xl bg-surface-container-lowest flex items-center justify-center ${tech.colorClass} group-hover:scale-110 transition-transform duration-300 shadow-inner`}
+                className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-surface-container-lowest flex items-center justify-center ${tech.colorClass} group-hover:scale-110 transition-transform duration-300 shadow-inner`}
               >
                 {tech.icon}
               </div>
-              <span className="font-headline-md text-sm text-on-surface font-semibold group-hover:text-primary transition-colors">
+              <span className="font-headline-md text-xs sm:text-sm text-on-surface font-semibold group-hover:text-primary transition-colors">
                 {tech.name}
               </span>
-              <span className="text-[10px] px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-code-inline">
+              <span className="text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-code-inline">
                 {tech.badge}
               </span>
             </motion.div>
@@ -299,21 +296,21 @@ export function Toolkit() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
-            className="mt-6 p-4 sm:p-5 rounded-2xl bg-surface-container border border-outline-variant/70 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xl"
+            className="mt-5 sm:mt-6 p-3.5 sm:p-5 rounded-2xl bg-surface-container border border-outline-variant/70 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 shadow-xl"
           >
-            <div className="flex items-center gap-3.5">
-              <div className="w-12 h-12 rounded-xl bg-surface-container-lowest flex items-center justify-center text-primary flex-shrink-0 shadow-inner">
+            <div className="flex items-center gap-3 sm:gap-3.5">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-surface-container-lowest flex items-center justify-center text-primary flex-shrink-0 shadow-inner">
                 {activeTech.icon}
               </div>
               <div>
-                <div className="flex items-center gap-2 flex-wrap">
-                  <h4 className="font-headline-md text-sm sm:text-base font-semibold text-on-surface">
+                <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
+                  <h4 className="font-headline-md text-xs sm:text-base font-semibold text-on-surface">
                     {activeTech.name}
                   </h4>
-                  <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-surface-container-high text-secondary font-code-inline">
+                  <span className="text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full bg-surface-container-high text-secondary font-code-inline">
                     {activeTech.categoryLabel}
                   </span>
-                  <span className="text-[10px] text-primary-fixed font-code-inline">
+                  <span className="text-[9px] sm:text-[10px] text-primary-fixed font-code-inline">
                     • {activeTech.badge}
                   </span>
                 </div>
@@ -325,7 +322,7 @@ export function Toolkit() {
 
             <button
               onClick={() => setActiveTech(null)}
-              className="text-xs px-3.5 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface self-end sm:self-center transition-colors cursor-pointer"
+              className="text-xs px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface self-end sm:self-center transition-colors cursor-pointer"
             >
               Dismiss
             </button>

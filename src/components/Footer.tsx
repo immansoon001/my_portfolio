@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { ArrowUp, Mail, Phone } from "lucide-react";
+import { ArrowUp, Mail } from "lucide-react";
 
 function GithubIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
@@ -46,9 +46,9 @@ export function Footer() {
 
   return (
     <footer className="w-full bg-surface-container-lowest border-t border-outline-variant/60 relative z-10">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-6">
         {/* Left: Brand Monogram & Location/Time */}
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5 sm:gap-3 text-center sm:text-left">
           <div
             onClick={scrollToTop}
             className="w-7 h-7 rounded-lg bg-surface-container border border-outline-variant/70 flex items-center justify-center transition-transform hover:scale-105 duration-300 cursor-pointer shadow-sm"
@@ -68,12 +68,12 @@ export function Footer() {
         </div>
 
         {/* Center: Social Quick Links */}
-        <div className="flex items-center gap-3 text-on-surface-variant">
+        <div className="flex items-center gap-2.5 sm:gap-3 text-on-surface-variant">
           <a
             href="https://github.com/immansoon001"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-full bg-surface-container-low border border-outline-variant/40 hover:text-primary hover:border-primary-container/60 transition-colors"
+            className="w-9 h-9 sm:w-8 sm:h-8 flex items-center justify-center rounded-full bg-surface-container-low border border-outline-variant/40 hover:text-primary hover:border-primary-container/60 transition-colors"
             aria-label="GitHub Profile"
           >
             <GithubIcon className="w-4 h-4" />
@@ -82,14 +82,14 @@ export function Footer() {
             href="https://www.linkedin.com/in/mansoon-patel-a48aa0296"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-full bg-surface-container-low border border-outline-variant/40 hover:text-secondary hover:border-secondary/60 transition-colors"
+            className="w-9 h-9 sm:w-8 sm:h-8 flex items-center justify-center rounded-full bg-surface-container-low border border-outline-variant/40 hover:text-secondary hover:border-secondary/60 transition-colors"
             aria-label="LinkedIn Profile"
           >
             <LinkedInIcon className="w-4 h-4" />
           </a>
           <a
             href="mailto:patelmansoon@gmail.com"
-            className="p-2 rounded-full bg-surface-container-low border border-outline-variant/40 hover:text-primary hover:border-primary-container/60 transition-colors"
+            className="w-9 h-9 sm:w-8 sm:h-8 flex items-center justify-center rounded-full bg-surface-container-low border border-outline-variant/40 hover:text-primary hover:border-primary-container/60 transition-colors"
             aria-label="Email Mansoon"
           >
             <Mail className="w-4 h-4" />
@@ -97,14 +97,14 @@ export function Footer() {
         </div>
 
         {/* Right: Copyright & Back-to-Top */}
-        <div className="flex items-center gap-4">
-          <p className="font-body-sm text-xs text-on-surface-variant text-center sm:text-right font-light">
+        <div className="flex items-center gap-3 sm:gap-4">
+          <p className="font-body-sm text-[11px] sm:text-xs text-on-surface-variant text-center sm:text-right font-light">
             © {new Date().getFullYear()} Mansoon Patel.
           </p>
 
           <button
             onClick={scrollToTop}
-            className="p-2 rounded-full bg-surface-container-low border border-outline-variant/60 text-on-surface-variant hover:text-primary hover:border-primary-container/60 transition-all duration-300 active:scale-95 shadow-sm cursor-pointer"
+            className="w-9 h-9 sm:w-8 sm:h-8 flex items-center justify-center rounded-full bg-surface-container-low border border-outline-variant/60 text-on-surface-variant hover:text-primary hover:border-primary-container/60 transition-all duration-300 active:scale-95 shadow-sm cursor-pointer"
             aria-label="Scroll to top"
             title="Back to top"
           >
