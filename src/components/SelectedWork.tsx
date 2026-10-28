@@ -51,8 +51,8 @@ const PROJECTS: Project[] = [
       "Architected a full stack career prep platform that analyzes resumes, calculates job matching scores, identifies skill gaps, and generates personalized questions + learning roadmaps. Helps job seekers close skill gaps with actionable feedback.",
     tags: ["React.js", "Node.js", "Express.js", "MongoDB", "GenAI", "Puppeteer", "Zod", "Tailwind CSS"],
     urlBar: "resumexpert.mansoonpatel.dev",
-    imageUrl: "/projects/resume-xpert.jpg",
-    githubUrl: "https://github.com/immansoon001",
+    imageUrl: "/projects/resume-xpert.png",
+    githubUrl: "https://github.com/immansoon001/Resume-Xpert",
     category: "ai",
     caseStudy: {
       problem:
@@ -77,8 +77,8 @@ const PROJECTS: Project[] = [
       "Built a recruiting platform with video conferencing for interviews, coding rounds, real-time chat, and candidate overload management using MERN and WebRTC. Integrated Clerk for authentication and Piston API for automated code analysis during coding rounds.",
     tags: ["React.js", "Node.js", "Express.js", "MongoDB", "WebRTC", "Clerk Auth", "Piston API", "Socket.io"],
     urlBar: "hirebridge.mansoonpatel.dev",
-    imageUrl: "/projects/hire-bridge.jpg",
-    githubUrl: "https://github.com/immansoon001",
+    imageUrl: "/projects/hire-bridge.png",
+    githubUrl: "https://github.com/immansoon001/Hire-Bridge-1",
     category: "webrtc",
     caseStudy: {
       problem:
@@ -113,25 +113,19 @@ export function SelectedWork() {
           <div className="inline-flex items-center gap-2 mb-2">
             <span className="w-1.5 h-1.5 rounded-full bg-secondary shadow-[0_0_8px_rgba(84,216,232,0.8)]" />
             <span className="font-label-sm text-xs uppercase tracking-widest text-primary font-semibold">
-              PORTFOLIO // SELECTED WORK
+              FEATURED WORK
             </span>
           </div>
           <h2 className="font-headline-xl text-2xl sm:text-4xl md:text-5xl text-on-surface tracking-tight font-bold">
-            Featured Products.
+            Featured Projects.
           </h2>
           <p className="font-body-md text-xs sm:text-base text-on-surface-variant mt-1.5 sm:mt-2 max-w-2xl font-light">
-            Production-grade full-stack architectures, GenAI platforms, and WebRTC real-time collaboration tools engineered by Mansoon Patel.
+            Full-stack web applications built with the MERN stack, AI features, and modern APIs.
           </p>
         </div>
 
         {/* Filter Pills */}
         <div className="flex flex-wrap items-center gap-2 max-w-full">
-          <div className="hidden xs:inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 rounded-full bg-surface-container-low border border-outline-variant/60 font-code-inline text-[10px] sm:text-[11px] text-on-surface-variant shadow-sm mr-1">
-            <span className="w-2 h-2 rounded-full bg-secondary animate-pulse flex-shrink-0" />
-            <span className="text-on-surface font-medium">{PROJECTS.length} Key Projects</span>
-            <span className="text-outline-variant">•</span>
-            <span className="text-secondary whitespace-nowrap">Production Verified</span>
-          </div>
 
           <div className="flex items-center bg-surface-container-low/80 border border-outline-variant/60 p-1 rounded-full text-xs font-label-md overflow-x-auto no-scrollbar max-w-full flex-nowrap">
             {[
@@ -142,11 +136,10 @@ export function SelectedWork() {
               <button
                 key={f.id}
                 onClick={() => setActiveFilter(f.id as typeof activeFilter)}
-                className={`px-3 py-1 rounded-full transition-all cursor-pointer whitespace-nowrap flex-shrink-0 text-xs ${
-                  activeFilter === f.id
+                className={`px-3 py-1 rounded-full transition-all cursor-pointer whitespace-nowrap flex-shrink-0 text-xs ${activeFilter === f.id
                     ? "bg-primary-container text-on-primary-container font-semibold shadow-sm"
                     : "text-on-surface-variant hover:text-on-surface"
-                }`}
+                  }`}
               >
                 {f.label}
               </button>
@@ -220,77 +213,233 @@ export function SelectedWork() {
                 </div>
               </div>
 
-            {/* Mockup Canvas */}
-            <div className="lg:col-span-7">
-              <div
-                onClick={() => setSelectedProject(PROJECTS[0])}
-                className="interactive-preview rounded-2xl bg-surface-container-lowest border border-outline-variant/70 overflow-hidden shadow-2xl cursor-pointer"
-              >
-                {/* Browser Chrome Header */}
-                <div className="h-9 sm:h-10 bg-surface-container-high/90 px-3 sm:px-4 flex items-center justify-between border-b border-outline-variant/60">
-                  <div className="flex items-center gap-1.5 flex-shrink-0">
-                    <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-error/80" />
-                    <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-tertiary/80" />
-                    <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-secondary/80" />
+              {/* Mockup Canvas */}
+              <div className="lg:col-span-7">
+                <div
+                  onClick={() => setSelectedProject(PROJECTS[0])}
+                  className="interactive-preview rounded-2xl bg-surface-container-lowest border border-outline-variant/70 overflow-hidden shadow-2xl cursor-pointer"
+                >
+                  {/* Browser Chrome Header */}
+                  <div className="h-9 sm:h-10 bg-surface-container-high/90 px-3 sm:px-4 flex items-center justify-between border-b border-outline-variant/60">
+                    <div className="flex items-center gap-1.5 flex-shrink-0">
+                      <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-error/80" />
+                      <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-tertiary/80" />
+                      <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-secondary/80" />
+                    </div>
+                    <div className="px-3 sm:px-4 py-0.5 sm:py-1 rounded bg-surface-container-lowest/80 text-[10px] sm:text-[11px] font-code-inline text-on-surface-variant border border-outline-variant/40 flex items-center gap-1.5 max-w-[200px] sm:max-w-xs">
+                      <Lock className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-secondary flex-shrink-0" />
+                      <span className="truncate">{PROJECTS[0].urlBar}</span>
+                    </div>
+                    <div className="w-6 sm:w-10" />
                   </div>
-                  <div className="px-3 sm:px-4 py-0.5 sm:py-1 rounded bg-surface-container-lowest/80 text-[10px] sm:text-[11px] font-code-inline text-on-surface-variant border border-outline-variant/40 flex items-center gap-1.5 max-w-[200px] sm:max-w-xs">
-                    <Lock className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-secondary flex-shrink-0" />
-                    <span className="truncate">{PROJECTS[0].urlBar}</span>
-                  </div>
-                  <div className="w-6 sm:w-10" />
-                </div>
 
-                {/* Browser Content Image */}
-                <div className="relative overflow-hidden aspect-[16/9] bg-surface-container-lowest">
-                  <Image
-                    src={PROJECTS[0].imageUrl}
-                    alt={PROJECTS[0].title}
-                    fill
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                    sizes="(max-width: 1024px) 100vw, 60vw"
-                    priority
-                  />
+                  {/* Browser Content Image */}
+                  <div className="relative overflow-hidden aspect-[16/9] bg-surface-container-lowest">
+                    <Image
+                      src={PROJECTS[0].imageUrl}
+                      alt={PROJECTS[0].title}
+                      fill
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                      sizes="(max-width: 1024px) 100vw, 60vw"
+                      priority
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
           </SpotlightCard>
         )}
 
-      {/* Project 2: Hire-Bridge */}
-      {filteredProjects.find((p) => p.id === "hire-bridge") && (
-        <SpotlightCard
-          spotlightColor="rgba(84, 216, 232, 0.2)"
-          className="group p-4 sm:p-7 md:p-9 lg:p-10 shadow-sm hover:shadow-[0_0_35px_rgba(84,216,232,0.18)] hover:border-secondary/60 transition-all duration-500"
-        >
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-secondary/0 to-transparent group-hover:via-secondary/70 transition-all duration-500" />
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-center">
-            {/* Copy & Info */}
-            <div className="lg:col-span-5 flex flex-col justify-between h-full">
-              <div>
-                <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 rounded-full bg-surface-container text-secondary text-[10px] sm:text-[11px] font-code-inline border border-secondary/30 mb-3 sm:mb-4 transition-colors group-hover:border-secondary/50 max-w-full">
-                  <Video className="w-3.5 h-3.5 text-secondary flex-shrink-0" />
-                  <span className="truncate">{PROJECTS[1].metric}</span>
+        {/* Project 2: Hire-Bridge */}
+        {filteredProjects.find((p) => p.id === "hire-bridge") && (
+          <SpotlightCard
+            spotlightColor="rgba(84, 216, 232, 0.2)"
+            className="group p-4 sm:p-7 md:p-9 lg:p-10 shadow-sm hover:shadow-[0_0_35px_rgba(84,216,232,0.18)] hover:border-secondary/60 transition-all duration-500"
+          >
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-secondary/0 to-transparent group-hover:via-secondary/70 transition-all duration-500" />
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-center">
+              {/* Copy & Info */}
+              <div className="lg:col-span-5 flex flex-col justify-between h-full">
+                <div>
+                  <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 rounded-full bg-surface-container text-secondary text-[10px] sm:text-[11px] font-code-inline border border-secondary/30 mb-3 sm:mb-4 transition-colors group-hover:border-secondary/50 max-w-full">
+                    <Video className="w-3.5 h-3.5 text-secondary flex-shrink-0" />
+                    <span className="truncate">{PROJECTS[1].metric}</span>
+                  </div>
+
+                  <h3 className="font-headline-xl text-xl sm:text-2xl md:text-3xl font-bold text-on-surface tracking-tight mb-1.5 sm:mb-2 transition-colors group-hover:text-secondary-fixed">
+                    {PROJECTS[1].title}
+                  </h3>
+
+                  <p className="font-headline-md text-xs sm:text-sm md:text-base text-secondary font-medium mb-3 sm:mb-4 leading-snug">
+                    {PROJECTS[1].subtitle}
+                  </p>
+
+                  <p className="font-body-md text-xs sm:text-sm md:text-base text-on-surface-variant font-light leading-relaxed mb-4 sm:mb-6">
+                    {PROJECTS[1].description}
+                  </p>
+
+                  {/* Tech Tags */}
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-6 sm:mb-8">
+                    {PROJECTS[1].tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-surface-container-high border border-outline-variant/60 text-[11px] sm:text-xs font-code-inline text-on-surface transition-colors hover:border-secondary/50"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
 
-                <h3 className="font-headline-xl text-xl sm:text-2xl md:text-3xl font-bold text-on-surface tracking-tight mb-1.5 sm:mb-2 transition-colors group-hover:text-secondary-fixed">
-                  {PROJECTS[1].title}
-                </h3>
+                {/* Actions */}
+                <div className="flex flex-col xs:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 pt-4 border-t border-outline-variant/60 w-full">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedProject(PROJECTS[1])}
+                    className="px-5 py-2.5 rounded-full font-label-md text-xs sm:text-sm bg-secondary text-on-secondary font-semibold transition-all duration-300 hover:bg-secondary-fixed hover:shadow-[0_0_20px_rgba(84,216,232,0.4)] active:scale-95 flex items-center justify-center gap-2 group/btn min-h-[44px] cursor-pointer flex-1 sm:flex-initial"
+                  >
+                    <span>View Architecture</span>
+                    <ExternalLink className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                  </button>
 
-                <p className="font-headline-md text-xs sm:text-sm md:text-base text-secondary font-medium mb-3 sm:mb-4 leading-snug">
-                  {PROJECTS[1].subtitle}
-                </p>
+                  <a
+                    href={PROJECTS[1].githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2.5 rounded-full font-label-md text-xs sm:text-sm bg-surface-container text-on-surface hover:text-secondary transition-all duration-300 hover:bg-surface-container-high border border-outline-variant/60 active:scale-95 flex items-center justify-center gap-2 group/btn min-h-[44px] flex-1 sm:flex-initial"
+                  >
+                    <GithubIcon className="w-4 h-4 transition-transform duration-300 group-hover/btn:scale-110" />
+                    <span>immansoon001</span>
+                  </a>
+                </div>
+              </div>
 
-                <p className="font-body-md text-xs sm:text-sm md:text-base text-on-surface-variant font-light leading-relaxed mb-4 sm:mb-6">
-                  {PROJECTS[1].description}
-                </p>
+              {/* Mockup Canvas */}
+              <div className="lg:col-span-7">
+                <div
+                  onClick={() => setSelectedProject(PROJECTS[1])}
+                  className="interactive-preview rounded-2xl bg-surface-container-lowest border border-outline-variant/70 overflow-hidden shadow-2xl cursor-pointer"
+                >
+                  {/* Browser Chrome Header */}
+                  <div className="h-9 sm:h-10 bg-surface-container-high/90 px-3 sm:px-4 flex items-center justify-between border-b border-outline-variant/60">
+                    <div className="flex items-center gap-1.5 flex-shrink-0">
+                      <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-error/80" />
+                      <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-tertiary/80" />
+                      <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-secondary/80" />
+                    </div>
+                    <div className="px-3 sm:px-4 py-0.5 sm:py-1 rounded bg-surface-container-lowest/80 text-[10px] sm:text-[11px] font-code-inline text-on-surface-variant border border-outline-variant/40 flex items-center gap-1.5 max-w-[200px] sm:max-w-xs">
+                      <Lock className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-secondary flex-shrink-0" />
+                      <span className="truncate">{PROJECTS[1].urlBar}</span>
+                    </div>
+                    <div className="w-6 sm:w-10" />
+                  </div>
 
-                {/* Tech Tags */}
-                <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-6 sm:mb-8">
-                  {PROJECTS[1].tags.map((tag) => (
+                  {/* Browser Content Image */}
+                  <div className="relative overflow-hidden aspect-[16/9] bg-surface-container-lowest">
+                    <Image
+                      src={PROJECTS[1].imageUrl}
+                      alt={PROJECTS[1].title}
+                      fill
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                      sizes="(max-width: 1024px) 100vw, 60vw"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SpotlightCard>
+        )}
+      </div>
+
+      {/* Case Study Deep-Dive Modal */}
+      <AnimatePresence>
+        {selectedProject && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative w-full max-w-2xl max-h-[88vh] overflow-y-auto rounded-2xl sm:rounded-3xl bg-surface-container border border-outline-variant p-4 sm:p-7 shadow-2xl"
+            >
+              <button
+                type="button"
+                onClick={() => setSelectedProject(null)}
+                className="absolute top-4 right-4 p-2 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer z-10"
+                aria-label="Close modal"
+              >
+                <X className="w-4 h-4" />
+              </button>
+
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest text-secondary text-xs font-code-inline border border-secondary/30 mb-3 max-w-[calc(100%-48px)] truncate">
+                <Activity className="w-3 h-3 text-secondary flex-shrink-0" />
+                <span className="truncate">{selectedProject.metric}</span>
+              </div>
+
+              <h3 className="font-headline-xl text-xl sm:text-2xl md:text-3xl text-on-surface font-bold mb-1 pr-10">
+                {selectedProject.title}
+              </h3>
+              <p className="text-primary font-medium text-xs sm:text-sm md:text-base mb-5">
+                {selectedProject.subtitle}
+              </p>
+
+              {/* Image Preview */}
+              <div className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-outline-variant/60 mb-5 bg-surface-container-lowest">
+                <Image
+                  src={selectedProject.imageUrl}
+                  alt={selectedProject.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Case Study Details */}
+              <div className="space-y-3.5 mb-5">
+                <div className="p-3.5 rounded-2xl bg-surface-container-low border border-outline-variant/40">
+                  <span className="font-semibold text-xs text-primary uppercase tracking-wider block mb-1">
+                    Engineering Challenge &amp; Problem
+                  </span>
+                  <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed font-light">
+                    {selectedProject.caseStudy.problem}
+                  </p>
+                </div>
+
+                <div className="p-3.5 rounded-2xl bg-surface-container-low border border-outline-variant/40">
+                  <span className="font-semibold text-xs text-secondary uppercase tracking-wider block mb-1">
+                    System Architecture &amp; Implementation
+                  </span>
+                  <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed font-light">
+                    {selectedProject.caseStudy.architecture}
+                  </p>
+                </div>
+
+                <div className="p-3.5 rounded-2xl bg-surface-container-low border border-outline-variant/40">
+                  <span className="font-semibold text-xs text-on-surface uppercase tracking-wider block mb-2">
+                    Key Performance Highlights
+                  </span>
+                  <ul className="space-y-2 text-xs sm:text-sm text-on-surface-variant">
+                    {selectedProject.caseStudy.highlights.map((h, i) => (
+                      <li key={i} className="flex items-start gap-2 font-light">
+                        <CheckCircle2 className="w-4 h-4 text-secondary flex-shrink-0 mt-0.5" />
+                        <span>{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-3 pt-3 border-t border-outline-variant/40 text-xs font-code-inline text-primary">
+                    ★ {selectedProject.caseStudy.benchmark}
+                  </div>
+                </div>
+              </div>
+
+              {/* Tech Stack Pills */}
+              <div className="mb-5">
+                <span className="text-xs text-on-surface-variant uppercase tracking-wider block mb-2 font-medium">
+                  Technologies Deployed
+                </span>
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                  {selectedProject.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-surface-container-high border border-outline-variant/60 text-[11px] sm:text-xs font-code-inline text-on-surface transition-colors hover:border-secondary/50"
+                      className="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-surface-container-high border border-outline-variant/60 text-[11px] sm:text-xs font-code-inline text-on-surface"
                     >
                       {tag}
                     </span>
@@ -298,185 +447,29 @@ export function SelectedWork() {
                 </div>
               </div>
 
-              {/* Actions */}
-              <div className="flex flex-col xs:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 pt-4 border-t border-outline-variant/60 w-full">
+              {/* Footer Modal Actions */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-2.5 sm:gap-3 pt-3 border-t border-outline-variant/60">
                 <button
                   type="button"
-                  onClick={() => setSelectedProject(PROJECTS[1])}
-                  className="px-5 py-2.5 rounded-full font-label-md text-xs sm:text-sm bg-secondary text-on-secondary font-semibold transition-all duration-300 hover:bg-secondary-fixed hover:shadow-[0_0_20px_rgba(84,216,232,0.4)] active:scale-95 flex items-center justify-center gap-2 group/btn min-h-[44px] cursor-pointer flex-1 sm:flex-initial"
+                  onClick={() => setSelectedProject(null)}
+                  className="px-4 py-2.5 rounded-full text-xs font-semibold text-on-surface-variant hover:text-on-surface cursor-pointer border border-outline-variant/40 sm:border-transparent text-center"
                 >
-                  <span>View Architecture</span>
-                  <ExternalLink className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                  Close
                 </button>
-
                 <a
-                  href={PROJECTS[1].githubUrl}
+                  href={selectedProject.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2.5 rounded-full font-label-md text-xs sm:text-sm bg-surface-container text-on-surface hover:text-secondary transition-all duration-300 hover:bg-surface-container-high border border-outline-variant/60 active:scale-95 flex items-center justify-center gap-2 group/btn min-h-[44px] flex-1 sm:flex-initial"
+                  className="px-5 py-2.5 rounded-full text-xs font-semibold bg-primary-container text-on-primary-container hover:bg-primary-fixed transition-colors flex items-center justify-center gap-2 shadow-sm text-center"
                 >
-                  <GithubIcon className="w-4 h-4 transition-transform duration-300 group-hover/btn:scale-110" />
-                  <span>immansoon001</span>
+                  <span>View on GitHub</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               </div>
-            </div>
-
-            {/* Mockup Canvas */}
-            <div className="lg:col-span-7">
-              <div
-                onClick={() => setSelectedProject(PROJECTS[1])}
-                className="interactive-preview rounded-2xl bg-surface-container-lowest border border-outline-variant/70 overflow-hidden shadow-2xl cursor-pointer"
-              >
-                {/* Browser Chrome Header */}
-                <div className="h-9 sm:h-10 bg-surface-container-high/90 px-3 sm:px-4 flex items-center justify-between border-b border-outline-variant/60">
-                  <div className="flex items-center gap-1.5 flex-shrink-0">
-                    <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-error/80" />
-                    <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-tertiary/80" />
-                    <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-secondary/80" />
-                  </div>
-                  <div className="px-3 sm:px-4 py-0.5 sm:py-1 rounded bg-surface-container-lowest/80 text-[10px] sm:text-[11px] font-code-inline text-on-surface-variant border border-outline-variant/40 flex items-center gap-1.5 max-w-[200px] sm:max-w-xs">
-                    <Lock className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-secondary flex-shrink-0" />
-                    <span className="truncate">{PROJECTS[1].urlBar}</span>
-                  </div>
-                  <div className="w-6 sm:w-10" />
-                </div>
-
-                {/* Browser Content Image */}
-                <div className="relative overflow-hidden aspect-[16/9] bg-surface-container-lowest">
-                  <Image
-                    src={PROJECTS[1].imageUrl}
-                    alt={PROJECTS[1].title}
-                    fill
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                    sizes="(max-width: 1024px) 100vw, 60vw"
-                  />
-                </div>
-              </div>
-            </div>
+            </motion.div>
           </div>
-        </SpotlightCard>
-      )}
-    </div>
-
-    {/* Case Study Deep-Dive Modal */}
-    <AnimatePresence>
-      {selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="relative w-full max-w-2xl max-h-[88vh] overflow-y-auto rounded-2xl sm:rounded-3xl bg-surface-container border border-outline-variant p-4 sm:p-7 shadow-2xl"
-          >
-            <button
-              type="button"
-              onClick={() => setSelectedProject(null)}
-              className="absolute top-4 right-4 p-2 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer z-10"
-              aria-label="Close modal"
-            >
-              <X className="w-4 h-4" />
-            </button>
-
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest text-secondary text-xs font-code-inline border border-secondary/30 mb-3 max-w-[calc(100%-48px)] truncate">
-              <Activity className="w-3 h-3 text-secondary flex-shrink-0" />
-              <span className="truncate">{selectedProject.metric}</span>
-            </div>
-
-            <h3 className="font-headline-xl text-xl sm:text-2xl md:text-3xl text-on-surface font-bold mb-1 pr-10">
-              {selectedProject.title}
-            </h3>
-            <p className="text-primary font-medium text-xs sm:text-sm md:text-base mb-5">
-              {selectedProject.subtitle}
-            </p>
-
-            {/* Image Preview */}
-            <div className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-outline-variant/60 mb-5 bg-surface-container-lowest">
-              <Image
-                src={selectedProject.imageUrl}
-                alt={selectedProject.title}
-                fill
-                className="object-cover"
-              />
-            </div>
-
-            {/* Case Study Details */}
-            <div className="space-y-3.5 mb-5">
-              <div className="p-3.5 rounded-2xl bg-surface-container-low border border-outline-variant/40">
-                <span className="font-semibold text-xs text-primary uppercase tracking-wider block mb-1">
-                  Engineering Challenge &amp; Problem
-                </span>
-                <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed font-light">
-                  {selectedProject.caseStudy.problem}
-                </p>
-              </div>
-
-              <div className="p-3.5 rounded-2xl bg-surface-container-low border border-outline-variant/40">
-                <span className="font-semibold text-xs text-secondary uppercase tracking-wider block mb-1">
-                  System Architecture &amp; Implementation
-                </span>
-                <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed font-light">
-                  {selectedProject.caseStudy.architecture}
-                </p>
-              </div>
-
-              <div className="p-3.5 rounded-2xl bg-surface-container-low border border-outline-variant/40">
-                <span className="font-semibold text-xs text-on-surface uppercase tracking-wider block mb-2">
-                  Key Performance Highlights
-                </span>
-                <ul className="space-y-2 text-xs sm:text-sm text-on-surface-variant">
-                  {selectedProject.caseStudy.highlights.map((h, i) => (
-                    <li key={i} className="flex items-start gap-2 font-light">
-                      <CheckCircle2 className="w-4 h-4 text-secondary flex-shrink-0 mt-0.5" />
-                      <span>{h}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-3 pt-3 border-t border-outline-variant/40 text-xs font-code-inline text-primary">
-                  ★ {selectedProject.caseStudy.benchmark}
-                </div>
-              </div>
-            </div>
-
-            {/* Tech Stack Pills */}
-            <div className="mb-5">
-              <span className="text-xs text-on-surface-variant uppercase tracking-wider block mb-2 font-medium">
-                Technologies Deployed
-              </span>
-              <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                {selectedProject.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-surface-container-high border border-outline-variant/60 text-[11px] sm:text-xs font-code-inline text-on-surface"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Footer Modal Actions */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-2.5 sm:gap-3 pt-3 border-t border-outline-variant/60">
-              <button
-                type="button"
-                onClick={() => setSelectedProject(null)}
-                className="px-4 py-2.5 rounded-full text-xs font-semibold text-on-surface-variant hover:text-on-surface cursor-pointer border border-outline-variant/40 sm:border-transparent text-center"
-              >
-                Close
-              </button>
-              <a
-                href={selectedProject.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-5 py-2.5 rounded-full text-xs font-semibold bg-primary-container text-on-primary-container hover:bg-primary-fixed transition-colors flex items-center justify-center gap-2 shadow-sm text-center"
-              >
-                <span>View on GitHub</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      )}
-    </AnimatePresence>
-  </section>
-);
+        )}
+      </AnimatePresence>
+    </section>
+  );
 }
