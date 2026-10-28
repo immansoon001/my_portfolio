@@ -5,12 +5,12 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ExternalLink,
-  Lock,
   Activity,
   X,
   CheckCircle2,
   Video,
   Bot,
+  ArrowUpRight,
 } from "lucide-react";
 import { SpotlightCard } from "./SpotlightCard";
 
@@ -29,9 +29,9 @@ interface Project {
   metric: string;
   description: string;
   tags: string[];
-  urlBar: string;
   imageUrl: string;
   githubUrl: string;
+  liveUrl: string;
   category: "ai" | "webrtc" | "all";
   caseStudy: {
     problem: string;
@@ -50,9 +50,9 @@ const PROJECTS: Project[] = [
     description:
       "Architected a full stack career prep platform that analyzes resumes, calculates job matching scores, identifies skill gaps, and generates personalized questions + learning roadmaps. Helps job seekers close skill gaps with actionable feedback.",
     tags: ["React.js", "Node.js", "Express.js", "MongoDB", "GenAI", "Puppeteer", "Zod", "Tailwind CSS"],
-    urlBar: "resumexpert.mansoonpatel.dev",
     imageUrl: "/projects/resume-xpert.png",
     githubUrl: "https://github.com/immansoon001/Resume-Xpert",
+    liveUrl: "https://resume-xpert-eight.vercel.app/",
     category: "ai",
     caseStudy: {
       problem:
@@ -76,9 +76,9 @@ const PROJECTS: Project[] = [
     description:
       "Built a recruiting platform with video conferencing for interviews, coding rounds, real-time chat, and candidate overload management using MERN and WebRTC. Integrated Clerk for authentication and Piston API for automated code analysis during coding rounds.",
     tags: ["React.js", "Node.js", "Express.js", "MongoDB", "WebRTC", "Clerk Auth", "Piston API", "Socket.io"],
-    urlBar: "hirebridge.mansoonpatel.dev",
     imageUrl: "/projects/hire-bridge.png",
     githubUrl: "https://github.com/immansoon001/Hire-Bridge-1",
+    liveUrl: "https://vercel.com/immansoon001s-projects/hire-bridge-1-ju3z",
     category: "webrtc",
     caseStudy: {
       problem:
@@ -191,59 +191,52 @@ export function SelectedWork() {
                 </div>
 
                 {/* Actions */}
-                <div className="flex flex-col xs:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 pt-4 border-t border-outline-variant/60 w-full">
+                <div className="flex flex-col xs:flex-row items-stretch sm:items-center gap-2 sm:gap-2.5 pt-4 border-t border-outline-variant/60 w-full flex-wrap">
                   <button
                     type="button"
                     onClick={() => setSelectedProject(PROJECTS[0])}
-                    className="px-5 py-2.5 rounded-full font-label-md text-xs sm:text-sm bg-primary-container text-on-primary-container font-semibold transition-all duration-300 hover:bg-primary-fixed hover:shadow-[0_0_20px_rgba(167,139,250,0.4)] active:scale-95 flex items-center justify-center gap-2 group/btn min-h-[44px] cursor-pointer flex-1 sm:flex-initial"
+                    className="px-3.5 sm:px-4 py-2 rounded-full font-label-md text-xs bg-primary-container text-on-primary-container font-semibold transition-all duration-300 hover:bg-primary-fixed hover:shadow-[0_0_20px_rgba(167,139,250,0.4)] active:scale-95 flex items-center justify-center gap-1.5 group/btn min-h-[38px] cursor-pointer flex-1 sm:flex-initial"
                   >
                     <span>View Architecture</span>
-                    <ExternalLink className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                    <ExternalLink className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                   </button>
+
+                  <a
+                    href={PROJECTS[0].liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3.5 sm:px-4 py-2 rounded-full font-label-md text-xs bg-surface-container text-on-surface hover:text-primary transition-all duration-300 hover:bg-surface-container-high border border-outline-variant/60 active:scale-95 flex items-center justify-center gap-1.5 group/btn min-h-[38px] flex-1 sm:flex-initial"
+                  >
+                    <span>Live Demo</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 opacity-80 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                  </a>
 
                   <a
                     href={PROJECTS[0].githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2.5 rounded-full font-label-md text-xs sm:text-sm bg-surface-container text-on-surface hover:text-primary transition-all duration-300 hover:bg-surface-container-high border border-outline-variant/60 active:scale-95 flex items-center justify-center gap-2 group/btn min-h-[44px] flex-1 sm:flex-initial"
+                    className="px-3.5 sm:px-4 py-2 rounded-full font-label-md text-xs bg-surface-container text-on-surface hover:text-primary transition-all duration-300 hover:bg-surface-container-high border border-outline-variant/60 active:scale-95 flex items-center justify-center gap-1.5 group/btn min-h-[38px] flex-1 sm:flex-initial"
                   >
-                    <GithubIcon className="w-4 h-4 transition-transform duration-300 group-hover/btn:scale-110" />
-                    <span>immansoon001</span>
+                    <GithubIcon className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:scale-110" />
+                    <span>GitHub</span>
                   </a>
                 </div>
               </div>
 
-              {/* Mockup Canvas */}
+              {/* Project Preview */}
               <div className="lg:col-span-7">
                 <div
                   onClick={() => setSelectedProject(PROJECTS[0])}
-                  className="interactive-preview rounded-2xl bg-surface-container-lowest border border-outline-variant/70 overflow-hidden shadow-2xl cursor-pointer"
+                  className="interactive-preview rounded-2xl bg-surface-container-lowest border border-outline-variant/70 overflow-hidden shadow-2xl cursor-pointer relative aspect-[16/9]"
                 >
-                  {/* Browser Chrome Header */}
-                  <div className="h-9 sm:h-10 bg-surface-container-high/90 px-3 sm:px-4 flex items-center justify-between border-b border-outline-variant/60">
-                    <div className="flex items-center gap-1.5 flex-shrink-0">
-                      <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-error/80" />
-                      <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-tertiary/80" />
-                      <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-secondary/80" />
-                    </div>
-                    <div className="px-3 sm:px-4 py-0.5 sm:py-1 rounded bg-surface-container-lowest/80 text-[10px] sm:text-[11px] font-code-inline text-on-surface-variant border border-outline-variant/40 flex items-center gap-1.5 max-w-[200px] sm:max-w-xs">
-                      <Lock className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-secondary flex-shrink-0" />
-                      <span className="truncate">{PROJECTS[0].urlBar}</span>
-                    </div>
-                    <div className="w-6 sm:w-10" />
-                  </div>
-
-                  {/* Browser Content Image */}
-                  <div className="relative overflow-hidden aspect-[16/9] bg-surface-container-lowest">
-                    <Image
-                      src={PROJECTS[0].imageUrl}
-                      alt={PROJECTS[0].title}
-                      fill
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                      sizes="(max-width: 1024px) 100vw, 60vw"
-                      priority
-                    />
-                  </div>
+                  <Image
+                    src={PROJECTS[0].imageUrl}
+                    alt={PROJECTS[0].title}
+                    fill
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                    priority
+                  />
                 </div>
               </div>
             </div>
@@ -292,58 +285,51 @@ export function SelectedWork() {
                 </div>
 
                 {/* Actions */}
-                <div className="flex flex-col xs:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 pt-4 border-t border-outline-variant/60 w-full">
+                <div className="flex flex-col xs:flex-row items-stretch sm:items-center gap-2 sm:gap-2.5 pt-4 border-t border-outline-variant/60 w-full flex-wrap">
                   <button
                     type="button"
                     onClick={() => setSelectedProject(PROJECTS[1])}
-                    className="px-5 py-2.5 rounded-full font-label-md text-xs sm:text-sm bg-secondary text-on-secondary font-semibold transition-all duration-300 hover:bg-secondary-fixed hover:shadow-[0_0_20px_rgba(84,216,232,0.4)] active:scale-95 flex items-center justify-center gap-2 group/btn min-h-[44px] cursor-pointer flex-1 sm:flex-initial"
+                    className="px-3.5 sm:px-4 py-2 rounded-full font-label-md text-xs bg-secondary text-on-secondary font-semibold transition-all duration-300 hover:bg-secondary-fixed hover:shadow-[0_0_20px_rgba(84,216,232,0.4)] active:scale-95 flex items-center justify-center gap-1.5 group/btn min-h-[38px] cursor-pointer flex-1 sm:flex-initial"
                   >
                     <span>View Architecture</span>
-                    <ExternalLink className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                    <ExternalLink className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                   </button>
+
+                  <a
+                    href={PROJECTS[1].liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3.5 sm:px-4 py-2 rounded-full font-label-md text-xs bg-surface-container text-on-surface hover:text-secondary transition-all duration-300 hover:bg-surface-container-high border border-outline-variant/60 active:scale-95 flex items-center justify-center gap-1.5 group/btn min-h-[38px] flex-1 sm:flex-initial"
+                  >
+                    <span>Live Demo</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 opacity-80 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                  </a>
 
                   <a
                     href={PROJECTS[1].githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2.5 rounded-full font-label-md text-xs sm:text-sm bg-surface-container text-on-surface hover:text-secondary transition-all duration-300 hover:bg-surface-container-high border border-outline-variant/60 active:scale-95 flex items-center justify-center gap-2 group/btn min-h-[44px] flex-1 sm:flex-initial"
+                    className="px-3.5 sm:px-4 py-2 rounded-full font-label-md text-xs bg-surface-container text-on-surface hover:text-secondary transition-all duration-300 hover:bg-surface-container-high border border-outline-variant/60 active:scale-95 flex items-center justify-center gap-1.5 group/btn min-h-[38px] flex-1 sm:flex-initial"
                   >
-                    <GithubIcon className="w-4 h-4 transition-transform duration-300 group-hover/btn:scale-110" />
-                    <span>immansoon001</span>
+                    <GithubIcon className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:scale-110" />
+                    <span>GitHub</span>
                   </a>
                 </div>
               </div>
 
-              {/* Mockup Canvas */}
+              {/* Project Preview */}
               <div className="lg:col-span-7">
                 <div
                   onClick={() => setSelectedProject(PROJECTS[1])}
-                  className="interactive-preview rounded-2xl bg-surface-container-lowest border border-outline-variant/70 overflow-hidden shadow-2xl cursor-pointer"
+                  className="interactive-preview rounded-2xl bg-surface-container-lowest border border-outline-variant/70 overflow-hidden shadow-2xl cursor-pointer relative aspect-[16/9]"
                 >
-                  {/* Browser Chrome Header */}
-                  <div className="h-9 sm:h-10 bg-surface-container-high/90 px-3 sm:px-4 flex items-center justify-between border-b border-outline-variant/60">
-                    <div className="flex items-center gap-1.5 flex-shrink-0">
-                      <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-error/80" />
-                      <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-tertiary/80" />
-                      <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-secondary/80" />
-                    </div>
-                    <div className="px-3 sm:px-4 py-0.5 sm:py-1 rounded bg-surface-container-lowest/80 text-[10px] sm:text-[11px] font-code-inline text-on-surface-variant border border-outline-variant/40 flex items-center gap-1.5 max-w-[200px] sm:max-w-xs">
-                      <Lock className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-secondary flex-shrink-0" />
-                      <span className="truncate">{PROJECTS[1].urlBar}</span>
-                    </div>
-                    <div className="w-6 sm:w-10" />
-                  </div>
-
-                  {/* Browser Content Image */}
-                  <div className="relative overflow-hidden aspect-[16/9] bg-surface-container-lowest">
-                    <Image
-                      src={PROJECTS[1].imageUrl}
-                      alt={PROJECTS[1].title}
-                      fill
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                      sizes="(max-width: 1024px) 100vw, 60vw"
-                    />
-                  </div>
+                  <Image
+                    src={PROJECTS[1].imageUrl}
+                    alt={PROJECTS[1].title}
+                    fill
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                  />
                 </div>
               </div>
             </div>
@@ -448,7 +434,7 @@ export function SelectedWork() {
               </div>
 
               {/* Footer Modal Actions */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-2.5 sm:gap-3 pt-3 border-t border-outline-variant/60">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-2.5 sm:gap-3 pt-3 border-t border-outline-variant/60 flex-wrap">
                 <button
                   type="button"
                   onClick={() => setSelectedProject(null)}
@@ -456,6 +442,15 @@ export function SelectedWork() {
                 >
                   Close
                 </button>
+                <a
+                  href={selectedProject.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2.5 rounded-full text-xs font-semibold bg-surface-container text-on-surface hover:text-primary border border-outline-variant/60 transition-colors flex items-center justify-center gap-1.5 shadow-sm text-center"
+                >
+                  <span>Live Demo</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
                 <a
                   href={selectedProject.githubUrl}
                   target="_blank"
