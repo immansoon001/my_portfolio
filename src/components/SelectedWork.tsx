@@ -78,7 +78,7 @@ const PROJECTS: Project[] = [
     tags: ["React.js", "Node.js", "Express.js", "MongoDB", "WebRTC", "Clerk Auth", "Piston API", "Socket.io"],
     imageUrl: "/projects/hire-bridge.png",
     githubUrl: "https://github.com/immansoon001/Hire-Bridge-1",
-    liveUrl: "https://vercel.com/immansoon001s-projects/hire-bridge-1-ju3z",
+    liveUrl: "https://hire-bridge-1-ju3z.vercel.app/",
     category: "webrtc",
     caseStudy: {
       problem:
@@ -137,8 +137,8 @@ export function SelectedWork() {
                 key={f.id}
                 onClick={() => setActiveFilter(f.id as typeof activeFilter)}
                 className={`px-3 py-1 rounded-full transition-all cursor-pointer whitespace-nowrap flex-shrink-0 text-xs ${activeFilter === f.id
-                    ? "bg-primary-container text-on-primary-container font-semibold shadow-sm"
-                    : "text-on-surface-variant hover:text-on-surface"
+                  ? "bg-primary-container text-on-primary-container font-semibold shadow-sm"
+                  : "text-on-surface-variant hover:text-on-surface"
                   }`}
               >
                 {f.label}
