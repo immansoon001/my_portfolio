@@ -205,11 +205,10 @@ export function ExperienceEducation() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as typeof activeTab)}
-                className={`flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full transition-all duration-300 whitespace-nowrap cursor-pointer flex-shrink-0 text-xs ${
-                  isActive
-                    ? "bg-primary-container text-on-primary-container font-semibold shadow-sm"
-                    : "text-on-surface-variant hover:text-on-surface"
-                }`}
+                className={`flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full transition-all duration-300 whitespace-nowrap cursor-pointer flex-shrink-0 text-xs ${isActive
+                  ? "bg-primary-container text-on-primary-container font-semibold shadow-sm"
+                  : "text-on-surface-variant hover:text-on-surface"
+                  }`}
               >
                 <Icon className="w-3.5 h-3.5" />
                 <span>{tab.label}</span>
